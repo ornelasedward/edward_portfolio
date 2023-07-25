@@ -1,4 +1,4 @@
-import { dots3, rl, topRefL, topRegR, BB1, BB2, TwitchClone } from "@/assets";
+import { dots3, rl, topRefL, topRegR } from "@/assets";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/common/ProjectCard";
 import { projectsData } from "@/constant";

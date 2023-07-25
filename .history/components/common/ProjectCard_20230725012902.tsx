@@ -26,7 +26,7 @@ const ProjectCard: React.FC<Props> = ({
       )}
       <div className=" flex p-3 items-center border border-gray">
         {tools.map((data) => (
-          <div className="text-base text-gray pr-2" key={data}>
+          <div className="text-base text-gray gap-2" key={data}>
             {data}
           </div>
         ))}

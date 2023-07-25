@@ -92,10 +92,11 @@ const projectsData = {
       liveLink: "https://daizyai.com",
     },
     {
-      name: "Mired",
+      name: "Chess pro",
       tools: ["Figma", "NextJS", "JS", "Mail API"],
 
-      describetion: "From Figma to Development, Mired a Web design Site",
+      describetion:
+        "Figma landing page about service for viewing chess tournaments",
       liveLink: "https://mired.io",
     },
     // {

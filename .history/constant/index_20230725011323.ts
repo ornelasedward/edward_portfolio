@@ -76,50 +76,49 @@ const projectsData = {
   ],
   smallProject: [
     {
-      name: "profitwise blog",
-      tools: ["Sanity CMS", "TS", "JS", "API"],
+      name: "Twitch Project",
+      tools: ["Discord.js", "TS", "JS"],
 
-      describetion:
-        "Ultizing NextJS and Sanity to create a Dynamically SSR blog",
-      liveLink: "https://profitwise.blog",
+      describetion: "Recreation of the UI of Twitch streaming platform.",
+      liveLink: "/",
     },
     {
-      name: "Daizy AI",
-      tools: ["GPT-4 API", "TS", "T3 Stack"],
+      name: "My blog",
+      tools: ["Vue", "CSS", "JS"],
 
-      describetion:
-        "A Saas inspired landing page with integrations with Open AI;s API",
-      liveLink: "https://daizyai.com",
+      describetion: "Front-end of my future blog website written in vue",
+      liveLink: "/",
     },
     {
-      name: "Mired",
-      tools: ["Figma", "NextJS", "JS", "Mail API"],
+      name: "Chess pro",
+      tools: ["Figma"],
 
-      describetion: "From Figma to Development, Mired a Web design Site",
-      liveLink: "https://mired.io",
+      describetion:
+        "Figma landing page about service for viewing chess tournaments",
+      liveLink: "/",
     },
-    // {
-    //   name: "CSS expirementse",
-    //   tools: ["Figma"],
+    {
+      name: "CSS expirementse",
+      tools: ["Figma"],
 
-    //   describetion: "Collection of my different little projects in css",
-    //   liveLink: "/",
-    // },
-    // {
-    //   name: "Web Dev nvim config",
-    //   tools: ["Lua", "NeoVim"],
+      describetion: "Collection of my different little projects in css",
+      liveLink: "/",
+    },
+    {
+      name: "Web Dev nvim config",
+      tools: ["Lua", "NeoVim"],
 
-    //   describetion: "Recreation of the UI of Twitch streaming platform.",
-    //   liveLink: "/",
-    // },
-    // {
-    //   name: "Crash protect website",
-    //   tools: ["Figma"],
+      describetion: "Recreation of the UI of Twitch streaming platform.",
+      liveLink: "/",
+    },
+    {
+      name: "Crash protect website",
+      tools: ["Figma"],
 
-    //   describetion:
-    //     "Figma template for website about anti-raid, anti-crash discord bot",
-    //   liveLink: "/",
-    // },
+      describetion:
+        "Figma template for website about anti-raid, anti-crash discord bot",
+      liveLink: "/",
+    },
   ],
 };
 

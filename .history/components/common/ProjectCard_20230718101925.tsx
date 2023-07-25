@@ -1,6 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import Button from "./Button";
+import Image from 'next/image';
+import React from 'react';
+import Button from './Button';
 
 interface Props {
   name: string;
@@ -25,10 +25,10 @@ const ProjectCard: React.FC<Props> = ({
         <Image className="  w-full" src={featureImage} alt={name} />
       )}
       <div className=" flex p-3 items-center border border-gray">
-        {tools.map((data) => (
-          <div className="text-base text-gray pr-2" key={data}>
+        {tools.map(data => (
+          <li className="text-base text-gray" key={data}>
             {data}
-          </div>
+          </li>
         ))}
       </div>
 

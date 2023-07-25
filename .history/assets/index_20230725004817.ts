@@ -31,7 +31,7 @@ export {
   botKontak,
   BB1,
   BB2,
-  TwitchClone,
+  TwitchClone
   eliasPortfolio,
   skillsDots,
   about_me_home_image,

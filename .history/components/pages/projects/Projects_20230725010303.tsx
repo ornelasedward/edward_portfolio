@@ -57,7 +57,7 @@ const AllProjects = () => {
         <Image src={topRegR} alt="dots2" />
       </div>
       <div className=" hidden lg:block absolute left-0 top-[65%]">
-        <Image className=" max-w-[150px]" src={topRefL} alt="dots2" />
+        <Image className=" max-w-[150px]" src={BB1} alt="dots2" />
       </div>
       <div className=" hidden lg:block absolute left-0 top-[95%]">
         <Image className=" max-w-[150px]" src={dots3} alt="dots2" />

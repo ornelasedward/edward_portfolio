@@ -38,9 +38,7 @@ const Works = () => {
           ))}
         </div>
       </Container>
-      <div className=" absolute  left-0 top-[12%]">
-        <Image src={dots3} alt="dots2" />
-      </div>
+
       <div className=" absolute  right-0 top-[45%]">
         <Image src={topRegR} alt="dots2" />
       </div>

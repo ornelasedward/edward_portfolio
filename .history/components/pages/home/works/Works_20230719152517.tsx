@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Container from "../../../Container";
+import React, { useState } from 'react';
+import Container from '../../../Container';
 
-import { projectsData } from "@/constant";
-import Button from "@/components/common/Button";
-import ProjectCard from "@/components/common/ProjectCard";
-import Image from "next/image";
-import { dots2, dots3, topRegR } from "@/assets";
+import { projectsData } from '@/constant';
+import Button from '@/components/common/Button';
+import ProjectCard from '@/components/common/ProjectCard';
+import Image from 'next/image';
+import { dots2, dots3, topRegR } from '@/assets';
 
 const Works = () => {
   return (
@@ -24,8 +24,8 @@ const Works = () => {
             <Button name="View all" type="outline" icon="~~>" link="projects" />
           </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projectsData.complete.slice(0, 3).map((data) => (
+        <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projectsData.complete.slice(0, 3).map(data => (
             <ProjectCard
               key={data.name}
               name={data.name}
