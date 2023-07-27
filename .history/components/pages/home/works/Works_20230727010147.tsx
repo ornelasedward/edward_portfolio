@@ -18,7 +18,7 @@ const Works = () => {
             <h2>
               <span className=" text-primary">#</span>projects
             </h2>
-            <div className=" h-[1px] w-[40px] sm:w-[70px] md:w-[40%] bg-primary md:block hidden"></div>
+            {/* <div className=" h-[1px] w-[40px] sm:w-[70px] md:w-[40%] bg-primary"></div> */}
           </div>
           <div>
             <Button name="View all" type="outline" icon="~~>" link="projects" />

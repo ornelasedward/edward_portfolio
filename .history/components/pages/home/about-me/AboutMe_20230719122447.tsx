@@ -1,8 +1,8 @@
-import { about_me_home_image, dots, dots2, topRefL, topRegR } from "@/assets";
-import Container from "@/components/Container";
-import Button from "@/components/common/Button";
-import Image from "next/image";
-import React from "react";
+import { about_me_home_image, dots, dots2, topRefL, topRegR } from '@/assets';
+import Container from '@/components/Container';
+import Button from '@/components/common/Button';
+import Image from 'next/image';
+import React from 'react';
 
 const AboutMe = () => {
   return (
@@ -18,7 +18,7 @@ const AboutMe = () => {
         </div>
         <div className=" w-full flex flex-col-reverse lg:items-center  lg:flex-row gap-10">
           <div className=" basis-1/2  space-y-4 ">
-            <div className="space-y-3 pb-4">
+            <div className="space-y-3">
               <p>
                 Based in Dallas, Texas, I&apos;m a full-stack developer and
                 content strategist. My journey began 7 years ago while honing

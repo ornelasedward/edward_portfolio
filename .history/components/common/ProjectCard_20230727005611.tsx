@@ -20,24 +20,24 @@ const ProjectCard: React.FC<Props> = ({
   featureImage,
 }) => {
   return (
-    <div className="border relative border-gray">
+    <div className=" border relative border-gray o">
       {featureImage && (
-        <Image className="sm:w-full w-96" src={featureImage} alt={name} />
+        <Image className="w-full" src={featureImage} alt={name} />
       )}
-      <div className="md:flex p-3 items-center border border-gray">
+      <div className=" flex p-3 items-center border border-gray">
         {tools.map((data) => (
-          <div className="text-base text-gray md:pr-2" key={data}>
+          <div className="text-base text-gray pr-2" key={data}>
             {data}
           </div>
         ))}
       </div>
 
-      <div className="px-3 py-5 space-y-3">
+      <div className="px-3  py-5 space-y-3">
         <div>
           <h3>{name}</h3>
           <p className=" ">{descripetion}</p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="   flex items-center gap-4">
           <Button
             link={liveLink}
             target="_blank"
