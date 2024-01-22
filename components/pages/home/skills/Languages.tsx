@@ -8,8 +8,8 @@ const Languages = () => {
       </div>
       <div className=" px-2 sm:px-5 py-2 border-t border-gray">
         <p className="lg:text-[1em] text-[.70em]">
-          TypeScript,Rust <br /> Java,JavaScript <br />
-          Elixer,TailwindCSS
+          HTML,CSS, <br />TypeScript,JavaScript <br /> Java, Rust<br />
+          Elixir, Python
         </p>
       </div>
     </div>

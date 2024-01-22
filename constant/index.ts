@@ -14,7 +14,7 @@ const navLinksData = [
     href: "/",
   },
   {
-    lebel: "works",
+    lebel: "work",
     href: "/projects",
   },
   {
@@ -32,10 +32,19 @@ const navLinksData = [
 const projectsData = {
   complete: [
     {
+      name: "Logo Forge",
+      tools: ["GPT-4", "NextJS", "Postgres", "Prisma", "TailwindCSS", "Node.js", "Stripe"],
+      features_iamge: BB1,
+      description:
+        "Frontend with subscription authenticator for premium newsletter",
+      liveLink: "https://www.becausebitcoin.com/",
+      github: "https://github.com/MiredWebServices/BecauseBitcoin",
+    },
+    {
       name: "Because Bitcoin Landing Page",
       tools: ["HTML", "CSS", "Javascript", "TypeScript"],
       features_iamge: BB1,
-      describetion:
+      description:
         "Frontend with subscription authenticator for premium newsletter",
       liveLink: "https://www.becausebitcoin.com/",
       github: "https://github.com/MiredWebServices/BecauseBitcoin",
@@ -44,7 +53,7 @@ const projectsData = {
       name: "Because Bitcoin Academy",
       tools: ["React", "NextJS", "Node.js", "SanityCMS"],
       features_iamge: BB2,
-      describetion:
+      description:
         "Backend course portal with Stripe paywall, using Vimeo and SanityCMS for seamless content management",
       liveLink: "https://www.becausebitcoin.com/academy",
       github: "https://github.com/MiredWebServices/BecauseBitcoin",
@@ -53,7 +62,7 @@ const projectsData = {
       name: "Twitch Clone",
       tools: ["JavaScript", "TailwindCSS", "NextJS", "RestAPI's"],
       features_iamge: TwitchClone,
-      describetion: "Interactice twitch Clone",
+      description: "Interactice twitch Clone",
       liveLink: "https://twitch-clone-fawn.vercel.app",
       github: "https://github.com/ornelasedward/twitch_clone",
     },
@@ -61,7 +70,7 @@ const projectsData = {
     //   name: "Daizy AI",
     //   tools: ["HTML", "CSS", "Express", "Node.js"],
     //   features_iamge: kahot,
-    //   describetion: "Get answers to your kahoot quiz",
+    //   description: "Get answers to your kahoot quiz",
     //   liveLink: "/",
     //   github: "",
     // },
@@ -69,7 +78,7 @@ const projectsData = {
     //   name: "Portfolio",
     //   tools: ["Vue", "TS", "Less"],
     //   features_iamge: eliasPortfolio,
-    //   describetion: "You’re using it rn",
+    //   description: "You’re using it rn",
     //   liveLink: "/",
     //   github: "",
     // },
@@ -79,7 +88,7 @@ const projectsData = {
       name: "profitwise blog",
       tools: ["Sanity CMS", "TS", "JS", "API"],
 
-      describetion:
+      description:
         "Ultizing NextJS and Sanity to create a Dynamically SSR blog",
       liveLink: "https://profitwise.blog",
     },
@@ -87,7 +96,7 @@ const projectsData = {
       name: "Daizy AI",
       tools: ["GPT-4 API", "TS", "T3 Stack"],
 
-      describetion:
+      description:
         "A Saas inspired landing page with integrations with Open AI;s API",
       liveLink: "https://daizyai.com",
     },
@@ -95,28 +104,28 @@ const projectsData = {
       name: "Mired",
       tools: ["Figma", "NextJS", "JS", "Mail API"],
 
-      describetion: "From Figma to Development, Mired a Web design Site",
+      description: "From Figma to Development, Mired a Web design Site",
       liveLink: "https://mired.io",
     },
     // {
     //   name: "CSS expirementse",
     //   tools: ["Figma"],
 
-    //   describetion: "Collection of my different little projects in css",
+    //   description: "Collection of my different little projects in css",
     //   liveLink: "/",
     // },
     // {
     //   name: "Web Dev nvim config",
     //   tools: ["Lua", "NeoVim"],
 
-    //   describetion: "Recreation of the UI of Twitch streaming platform.",
+    //   description: "Recreation of the UI of Twitch streaming platform.",
     //   liveLink: "/",
     // },
     // {
     //   name: "Crash protect website",
     //   tools: ["Figma"],
 
-    //   describetion:
+    //   description:
     //     "Figma template for website about anti-raid, anti-crash discord bot",
     //   liveLink: "/",
     // },

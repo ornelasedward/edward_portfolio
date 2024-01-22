@@ -4,7 +4,7 @@ import Button from "./Button";
 
 interface Props {
   name: string;
-  descripetion: string;
+  description: string;
   tools: Array<string>;
   liveLink?: string;
   github?: string;
@@ -13,7 +13,7 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = ({
   name,
-  descripetion,
+  description,
   tools,
   liveLink,
   github,
@@ -35,7 +35,7 @@ const ProjectCard: React.FC<Props> = ({
       <div className="px-3 py-5 space-y-3">
         <div>
           <h3>{name}</h3>
-          <p className=" ">{descripetion}</p>
+          <p className=" ">{description}</p>
         </div>
         <div className="flex items-center gap-4">
           <Button

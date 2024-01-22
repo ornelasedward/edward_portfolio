@@ -18,5 +18,6 @@ import email from './Email.svg';
 import github from './Github.svg';
 import linkedin from './Linkedin.svg';
 import twitter from './Twitter.svg';
+import youtube from './YouTube.svg';
 
-export { Qoute, discord, email, github, linkedin, twitter };
+export { Qoute, discord, email, github, linkedin, twitter, youtube};

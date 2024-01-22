@@ -24,7 +24,7 @@ const AllProjects = () => {
               <ProjectCard
                 key={index}
                 name={data.name}
-                descripetion={data.describetion}
+                description={data.description}
                 featureImage={data.features_iamge}
                 liveLink={data.liveLink}
                 github={data.github}
@@ -42,7 +42,7 @@ const AllProjects = () => {
               <ProjectCard
                 key={index}
                 name={data.name}
-                descripetion={data.describetion}
+                description={data.description}
                 liveLink={data.liveLink}
                 tools={data.tools}
               />

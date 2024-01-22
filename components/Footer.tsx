@@ -53,7 +53,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <p className=" py-6 text-left lg:text-center ">© Copyright 2023.</p>
+        <p className=" py-6 text-left lg:text-center ">© Copyright 2024.</p>
       </Container>
     </footer>
   );

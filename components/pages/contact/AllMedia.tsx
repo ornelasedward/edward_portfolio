@@ -25,7 +25,7 @@ const AllMedia = () => {
             className=" flex items-center gap-0"
           >
             <Image src={github} alt="github" />
-            <span className=" text-base text-gray">LinkedIn</span>
+            <span className=" text-base text-gray">Github</span>
           </Link>
         </div>
         <div className=" flex items-center gap-4">
