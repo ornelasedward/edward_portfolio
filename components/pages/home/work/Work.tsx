@@ -30,7 +30,7 @@ const Work = () => {
               key={data.name}
               name={data.name}
               description={data.description}
-              featureImage={data.features_iamge}
+              featureImage={data.features_image}
               liveLink={data.liveLink}
               github={data.github}
               tools={data.tools}

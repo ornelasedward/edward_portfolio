@@ -22,9 +22,9 @@ const ProjectCard: React.FC<Props> = ({
   return (
     <div className="border relative border-gray">
       {featureImage && (
-        <Image className="sm:w-full w-96" src={featureImage} alt={name} />
+        <Image className="sm:w-full w-96 h-64 object-cover" src={featureImage} alt={name} />
       )}
-      <div className="md:flex p-3 items-center border border-gray">
+      <div className="md:flex flex-wrap p-3 items-center border border-gray">
         {tools.map((data) => (
           <div className="text-base text-gray md:pr-2" key={data}>
             {data}
@@ -35,7 +35,7 @@ const ProjectCard: React.FC<Props> = ({
       <div className="px-3 py-5 space-y-3">
         <div>
           <h3>{name}</h3>
-          <p className=" ">{description}</p>
+          <p className="">{description}</p>
         </div>
         <div className="flex items-center gap-4">
           <Button

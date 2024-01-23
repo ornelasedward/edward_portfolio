@@ -54,7 +54,7 @@ const MobileMenu = () => {
                 className="block py-2 pl-3 pr-4 text-white text-base leading-[19px] font-bold font-segoe"
                 aria-current="page"
               >
-                {link.lebel}
+                {link.label}
               </Link>
             </li>
           ))}

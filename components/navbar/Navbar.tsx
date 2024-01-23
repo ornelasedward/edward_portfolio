@@ -62,7 +62,7 @@ const Navbar = () => {
           <ul className=" hidden md:flex items-center gap-5">
             {navLinksData.map((link, key) => (
               <li key={key}>
-                <ActiveLink href={link.href}>{link.lebel}</ActiveLink>
+                <ActiveLink href={link.href}>{link.label}</ActiveLink>
               </li>
             ))}
             <Menu menuItems={menuItems} />
@@ -83,7 +83,7 @@ const Navbar = () => {
             <ul className="flex flex-col  pt-7 md:flex-row gap-6">
               {navLinksData.map(link => (
                 <li key={link.href} onClick={openNavbar}>
-                  <ActiveLink href={link.href}>{link.lebel}</ActiveLink>
+                  <ActiveLink href={link.href}>{link.label}</ActiveLink>
                 </li>
               ))}
             </ul>

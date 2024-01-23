@@ -20,6 +20,7 @@ import rl from "./images/RectangleLeft.png";
 import dots3 from "./images/dots4.svg";
 import topRegR from "./images/topRegtengle.png";
 import topRefL from "./images/topRefLeft.svg";
+import logoForge from "./images/logoForge.png";
 export {
   logo,
   heroImage,
@@ -43,4 +44,5 @@ export {
   dots3,
   topRegR,
   topRefL,
+  logoForge,
 };

@@ -5,24 +5,25 @@ import {
   protectX,
   BB1,
   BB2,
+  logoForge,
   TwitchClone,
 } from "@/assets";
 
 const navLinksData = [
   {
-    lebel: "home",
+    label: "home",
     href: "/",
   },
   {
-    lebel: "work",
+    label: "work",
     href: "/projects",
   },
   {
-    lebel: "about-me",
+    label: "about-me",
     href: "/about-me",
   },
   {
-    lebel: "contacts",
+    label: "contacts",
     href: "/contact",
   },
 ];
@@ -32,18 +33,18 @@ const navLinksData = [
 const projectsData = {
   complete: [
     {
-      name: "Logo Forge",
-      tools: ["GPT-4", "NextJS", "Postgres", "Prisma", "TailwindCSS", "Node.js", "Stripe"],
-      features_iamge: BB1,
+      name: "Logo Forge, an AI Logo Generator",
+      tools: ["ChatGPT", "NextJS", "Postgres", "Prisma", "TailwindCSS", "Node.js", "Stripe"],
+      features_image: logoForge,
       description:
-        "Frontend with subscription authenticator for premium newsletter",
-      liveLink: "https://www.becausebitcoin.com/",
-      github: "https://github.com/MiredWebServices/BecauseBitcoin",
+        "A powerful logo generator using the T3 stack. This includes Next.js (pages directory), TypeScript, Tailwind CSS, Next-Auth, and Prisma. As well as PostgreSQL database using Supabase",
+      liveLink: "https://www.logoforge.xyz",
+      github: "https://github.com/ornelasedward/icon-generator",
     },
     {
       name: "Because Bitcoin Landing Page",
       tools: ["HTML", "CSS", "Javascript", "TypeScript"],
-      features_iamge: BB1,
+      features_image: BB1,
       description:
         "Frontend with subscription authenticator for premium newsletter",
       liveLink: "https://www.becausebitcoin.com/",
@@ -52,7 +53,7 @@ const projectsData = {
     {
       name: "Because Bitcoin Academy",
       tools: ["React", "NextJS", "Node.js", "SanityCMS"],
-      features_iamge: BB2,
+      features_image: BB2,
       description:
         "Backend course portal with Stripe paywall, using Vimeo and SanityCMS for seamless content management",
       liveLink: "https://www.becausebitcoin.com/academy",
@@ -61,7 +62,7 @@ const projectsData = {
     {
       name: "Twitch Clone",
       tools: ["JavaScript", "TailwindCSS", "NextJS", "RestAPI's"],
-      features_iamge: TwitchClone,
+      features_image: TwitchClone,
       description: "Interactice twitch Clone",
       liveLink: "https://twitch-clone-fawn.vercel.app",
       github: "https://github.com/ornelasedward/twitch_clone",
@@ -69,7 +70,7 @@ const projectsData = {
     // {
     //   name: "Daizy AI",
     //   tools: ["HTML", "CSS", "Express", "Node.js"],
-    //   features_iamge: kahot,
+    //   features_image: kahot,
     //   description: "Get answers to your kahoot quiz",
     //   liveLink: "/",
     //   github: "",
@@ -77,7 +78,7 @@ const projectsData = {
     // {
     //   name: "Portfolio",
     //   tools: ["Vue", "TS", "Less"],
-    //   features_iamge: eliasPortfolio,
+    //   features_image: eliasPortfolio,
     //   description: "You’re using it rn",
     //   liveLink: "/",
     //   github: "",
