@@ -38,12 +38,16 @@ const Hero = () => {
                   <div className=" w-4 h-4  bg-primary"></div>
                 </div>
                 <p className=" leading-5">
-                  Currently working on making <br />
-                  <span className="text-white font-semibold">
-                    BecauseBitcoin
-                  </span>{' '}
-                  kind of cool
+                  Currently working on 
                 </p>
+                <a
+                    href="https://app.bbterminal.com/"
+                    className="text-yellow-400 font-semibold underline hover:text-primary transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    BB Terminal
+                  </a>
               </div>
             </div>
             <div className=" hidden lg:block absolute top-[120px] left-[-57px]">
