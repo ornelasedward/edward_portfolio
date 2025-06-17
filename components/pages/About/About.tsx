@@ -18,13 +18,13 @@ const AboutPage = () => {
         <div className="  flex flex-col-reverse lg:flex-row lg:items-center gap-6 lg:gap-10 ">
           <div className="space-y-3 basis-[60%]">
             <p>
-  Based in Dallas, Texas, I'm a full-stack engineer and technical leader specializing in crypto, healthcare, and edtech platforms. My journey began at the intersection of content strategy and emerging tech, but quickly evolved as I led engineering teams and launched high-impact products for fast-growth startups and complex organizations.
+  Based in Dallas, Texas, I&apos;m a full-stack engineer and technical leader specializing in crypto, healthcare, and edtech platforms. My journey began at the intersection of content strategy and emerging tech, but quickly evolved as I led engineering teams and launched high-impact products for fast-growth startups and complex organizations.
 </p>
 <p>
-  I've architected and scaled platforms like BB Terminal (crypto analytics suite), Telos Health (modular healthcare platform), and BB Academy (education CMS), driving projects from initial concept to production deployment. I'm passionate about building robust systems end-to-end, leading teams, and applying the latest in cloud, security, and modern frameworks to deliver user-driven experiences.
+  I&apos;ve architected and scaled platforms like BB Terminal (crypto analytics suite), Telos Health (modular healthcare platform), and BB Academy (education CMS), driving projects from initial concept to production deployment. I&apos;m passionate about building robust systems end-to-end, leading teams, and applying the latest in cloud, security, and modern frameworks to deliver user-driven experiences.
 </p>
 <p>
-  I hold a Bachelor's in ICT with a concentration in cybersecurity, and I consistently bring technical depth, product vision, and a bias for action to every project—always pushing for best practices, strong security, and future-ready solutions.
+  I hold a Bachelor&apos;s in ICT with a concentration in cybersecurity, and I consistently bring technical depth, product vision, and a bias for action to every project—always pushing for best practices, strong security, and future-ready solutions.
 </p>
           </div>
           <div className=" basis-[40%] ">
