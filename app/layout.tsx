@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { github, linkedin, twitterX, youtube } from '@/assets/icons';
 import MobileNavbar from '@/components/navbar/MobileNavigation';
+import Script from 'next/script';
 
 const fira_code = Fira_Code({ subsets: ['latin'] });
 
@@ -20,6 +21,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Edward&apos;s portfolio</title>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TWVMHL49JM"
+          strategy="afterInteractive"
+          async
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TWVMHL49JM');
+          `}
+        </Script>
         <meta name="description" content="Full stack engineer and technical leader" />
         {/* Open Graph */}
         <meta property="og:title" content="Edward&apos;s portfolio" />
