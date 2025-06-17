@@ -33,6 +33,7 @@ const AllProjects = () => {
             ))}
           </div>
         </div>
+        {/*
         <div className=" space-y-9">
           <h2>
             <span className=" text-primary">#</span>small-projects
@@ -48,7 +49,9 @@ const AllProjects = () => {
               />
             ))}
           </div>
+          
         </div>
+        */}
       </Container>
       <div className=" hidden lg:block absolute right-0 top-[75%]">
         <Image src={dots3} alt="dots2" />

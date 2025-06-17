@@ -42,17 +42,17 @@ const FunFacts = () => {
           <div className=" p-2 border  border-gray">
             <p>
               My favorite movie is{' '}
-              <span className=" text-white">A Most Violent Year</span>
+              <span className=" text-white">Anything Christopher Nolan or Quentin Tarantino</span>
             </p>
           </div>
           <div className=" p-2 border  border-gray">
-            <p>I am back in school</p>
+            <p>Graduated from <span className=" text-white">New Mexico State University</span></p>
           </div>
         </div>
         <div className="flex ">
           <div className="  w-auto p-2 border  border-gray">
             <p>
-              I was once <span className=" text-white">dragged </span>by a calf
+              I was once <span className=" text-white">dragged </span>by a baby bull
             </p>
           </div>
         </div>
