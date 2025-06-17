@@ -7,6 +7,10 @@ import {
   BB2,
   logoForge,
   TwitchClone,
+  terminalImage,
+  terminalImage2,
+  telo,
+  bbAcademy,
 } from "@/assets";
 
 const navLinksData = [
@@ -35,29 +39,31 @@ const projectsData = {
     {
       name: "BB Terminal",
       tools: ["Next.js", "React", "TypeScript", "Firebase", "PostgreSQL", "Docker", "Azure"],
-      features_image: BB1,
+      features_image: terminalImage2,
       description:
         "All-in-one crypto analytics platform tracking 50+ assets with 20+ pro trading indicators, portfolio tools, and real-time market intelligence. I led a team of 6 as the Lead Software Engineer, architecting the entire platform and scaling it from 275,000+ monthly views and $150K/month in revenue.",
-      liveLink: "",
+      liveLink: "https://app.bbterminal.com/home",
+      github: "",
+    },
+  
+    {
+      name: "Telos Health",
+      tools: ["Angular", "NestJS", "PostgreSQL", "SCSS", "Docker", "Directus"],
+      features_image: telo,
+      description:
+        "Modular healthcare platform supporting clinicians, admins, and patients for home health agencies with HIPAA-compliant infrastructure. I built responsive frontend components and secure backend APIs, helping launch across 3 portals with 20,000+ patients and supporting investor demos through performance-optimized landing pages.",
+      liveLink: "https://www.linkedin.com/company/telos-health-solutions/posts/?feedView=images",
       github: "",
     },
     {
       name: "BB Academy",
       tools: ["React", "Next.js", "Node.js", "SanityCMS", "Stripe", "Vimeo", "Google Cloud Functions", "Firebase"],
-      features_image: BB2,
+      features_image: bbAcademy,
       description:
         "Proprietary course and content platform for BecauseBitcoin, providing a seamless CMS-like experience for creating, selling, and managing educational content. I built the end-to-end academy experience, including checkout flows and modular course management, driving new revenue streams and enabling self-serve course publishing for the team.",
-      liveLink: "",
+      liveLink: "https://becausebitcoin.com/academy",
       github: "",
-    },
-    {
-      name: "Telos Health",
-      tools: ["Angular", "NestJS", "PostgreSQL", "SCSS", "Docker", "Directus"],
-      features_image: kahot,
-      description:
-        "Modular healthcare platform supporting clinicians, admins, and patients for home health agencies with HIPAA-compliant infrastructure. I built responsive frontend components and secure backend APIs, helping launch across 3 portals with 20,000+ patients and supporting investor demos through performance-optimized landing pages.",
-      liveLink: "",
-      github: "",
+
     },
     // {
     //   name: "Daizy AI",

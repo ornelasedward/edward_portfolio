@@ -1,5 +1,9 @@
 import logo from "./images/logo.svg";
 import heroImage from "./images/hero.svg";
+import terminalImage from "./images/terminal_image.png";
+import terminalImage2 from "./images/terminal_image2.png";
+import telo from "./images/telo.png";
+import bbAcademy from "./images/bb_academy.png";
 import a1 from "./images/assets1.svg";
 import testimonialReg from "./images/RectangleTestimonial.png";
 import chertNode from "./images/projects/chertNodes.png";
@@ -23,6 +27,10 @@ import topRefL from "./images/topRefLeft.svg";
 import logoForge from "./images/logoForge.png";
 export {
   logo,
+  terminalImage,
+  terminalImage2,
+  telo,
+  bbAcademy,
   heroImage,
   a1,
   testimonialReg,

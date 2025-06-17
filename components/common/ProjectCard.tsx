@@ -45,13 +45,15 @@ const ProjectCard: React.FC<Props> = ({
             type="primary"
             icon="<~>"
           />
-          <Button
-            link={github}
-            target="_blank"
-            name="Github"
-            type="secondary"
-            icon=">="
-          />
+          {github && (
+            <Button
+              link={github}
+              target="_blank"
+              name="Github"
+              type="secondary"
+              icon=">="
+            />
+          )}
         </div>
       </div>
     </div>

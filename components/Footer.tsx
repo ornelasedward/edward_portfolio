@@ -3,7 +3,7 @@ import Container from './Container';
 import Image from 'next/image';
 import { logo } from '@/assets';
 import Link from 'next/link';
-import { github, linkedin, twitter } from '@/assets/icons';
+import { github, linkedin, twitterX } from '@/assets/icons';
 import { TfiYoutube } from 'react-icons/tfi';
 import Logo from './common/Logo';
 
@@ -37,12 +37,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link href={'https://www.linkedin.com/in/edward-ornelas-681b52131/'} target="_blank">
-                  <Image src={linkedin} alt="github" />
+                  <Image src={linkedin} alt="linkedin" />
                 </Link>
               </li>
               <li>
                 <Link href={'https://x.com/_THECRYPTODEV'} target="_blank">
-                  <Image src={twitter} alt="github" />
+                  <Image src={twitterX} alt="twitter" className="brightness-0 invert drop-shadow-[0_0_4px_#60a5fa]" />
                 </Link>
               </li>
               <li>
