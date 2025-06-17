@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
       ? 'bg-transparent border border-primary text-white hover:bg-primary hover:text-black transition duration-300 ease-in-out'
       : type === 'secondary'
       ? 'bg-transparent border border-dark text-dark hover:bg-[rgba(171, 178, 191, 1)] hover:text-gray transition duration-300 ease-in-out'
-      : 'bg-transparent border-none text-white px-0' // Outline style when type is not provided or 'outline'
+      : 'bg-transparent border-none text-primary px-0' // Outline style when type is not provided or 'outline'
   }`;
 
   return (

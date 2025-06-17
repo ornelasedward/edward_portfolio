@@ -18,42 +18,42 @@ const Footer = () => {
                 <Image src={logo} alt="edward_logo" />
                 <span className={` text-base  font-bold `}>Edward</span>
               </div>
-              <p className=" hidden lg:block">Ornelasedward@rocketmail.com</p>
+              <p className=" hidden lg:block">ornelasedward@rocketmail.com</p>
             </div>
             <h6 className=" text-center lg:text-left text-base text-white ">
-              Full Stack Developer and Content Strategist
+            full stack engineer and technical leader,
             </h6>
             <p className=" text-center lg:hidden">
-              Ornelasedward@rocketmail.com
+              ornelasedward@rocketmail.com
             </p>
           </div>
           <div>
             <h3 className="  text-center lg:text-left">Media</h3>
             <ul className="s pt-2 flex items-center gap-3">
               <li>
-                <Link href={'/'} target="_blank">
+                <Link href={'https://github.com/ornelasedward'} target="_blank">
                   <Image src={github} alt="github" />
                 </Link>
               </li>
               <li>
-                <Link href={'/'} target="_blank">
+                <Link href={'https://www.linkedin.com/in/edward-ornelas-681b52131/'} target="_blank">
                   <Image src={linkedin} alt="github" />
                 </Link>
               </li>
               <li>
-                <Link href={'/'} target="_blank">
+                <Link href={'https://x.com/_THECRYPTODEV'} target="_blank">
                   <Image src={twitter} alt="github" />
                 </Link>
               </li>
               <li>
-                <Link href={'/'} target="_blank">
+                <Link href={'https://www.youtube.com/@EdwardOrnelas'} target="_blank">
                   <TfiYoutube className=" text-gray" size={25} />
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <p className=" py-6 text-left lg:text-center ">© Copyright 2024.</p>
+        <p className=" py-6 text-left lg:text-center "></p>
       </Container>
     </footer>
   );

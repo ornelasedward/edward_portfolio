@@ -18,9 +18,7 @@ const Contacts = () => {
           <div className=" w-full gap-6 xl:w-[80%] flex flex-col lg:flex-row  lg:items-center lg:justify-between">
             <div className=" space-y-8 lg:max-w-[506px]">
               <p className=" pt-6">
-                I’m interested in fulltime and contract opportunities. However,
-                if you have other request or question, don’t hesitate to contact
-                me
+                I&apos;m open to roles in software engineering, technical leadership, or product-focused teams at innovative companies. For opportunities or collaborations, feel free to reach out directly.
               </p>
               <div className=" hidden lg:block">
                 <Button name="Contact me ->" link="/contact" />
@@ -36,7 +34,7 @@ const Contacts = () => {
                   </li>
                   <li className="s text-base flex text-gray items-center gap-2">
                     <Image src={email} alt="emasil" />
-                    Ornelasedward@rocketmail.com
+                    ornelasedward@rocketmail.com
                   </li>
                 </ul>
               </div>

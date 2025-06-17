@@ -41,12 +41,13 @@ const Navbar = () => {
   const openNavbar = () => {
     setIsOpen(!isOpen);
   };
-  const menuItems = [
-    { label: 'EN', path: '/' },
-    { label: 'SP', path: '/' },
-    { label: 'BD', path: '/' },
-    // Add more menu items here
-  ];
+
+  //const menuItems = [
+  //   { label: 'EN', path: '/' },
+  //   { label: 'SP', path: '/' },
+  //   { label: 'BD', path: '/' },
+  //   // Add more menu items here
+  // ];
   return (
     <Container>
       <header className="  py-8  flex items-center justify-between">
@@ -65,7 +66,7 @@ const Navbar = () => {
                 <ActiveLink href={link.href}>{link.label}</ActiveLink>
               </li>
             ))}
-            <Menu menuItems={menuItems} />
+            {/* <Menu menuItems={menuItems} /> */}
           </ul>
           <div
             className={` md:hidden fixed  bg-primary-dark   mobile_navbar 2xl:px-0 px-4 pt-6 w-full h-full   ${

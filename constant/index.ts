@@ -33,39 +33,31 @@ const navLinksData = [
 const projectsData = {
   complete: [
     {
-      name: "Logo Forge, an AI Logo Generator",
-      tools: ["ChatGPT", "NextJS", "Postgres", "Prisma", "TailwindCSS", "Node.js", "Stripe"],
-      features_image: logoForge,
-      description:
-        "A powerful logo generator using the T3 stack. This includes Next.js (pages directory), TypeScript, Tailwind CSS, Next-Auth, and Prisma. As well as PostgreSQL database using Supabase",
-      liveLink: "https://www.logoforge.xyz",
-      github: "https://github.com/ornelasedward/icon-generator",
-    },
-    {
-      name: "Because Bitcoin Landing Page",
-      tools: ["HTML", "CSS", "Javascript", "TypeScript"],
+      name: "BB Terminal",
+      tools: ["Next.js", "React", "TypeScript", "Firebase", "PostgreSQL", "Docker", "Azure"],
       features_image: BB1,
       description:
-        "Frontend with subscription authenticator for premium newsletter",
-      liveLink: "https://www.becausebitcoin.com/",
-      github: "https://github.com/MiredWebServices/BecauseBitcoin",
+        "All-in-one crypto analytics platform tracking 50+ assets with 20+ pro trading indicators, portfolio tools, and real-time market intelligence. I led a team of 6 as the Lead Software Engineer, architecting the entire platform and scaling it from 275,000+ monthly views and $150K/month in revenue.",
+      liveLink: "",
+      github: "",
     },
     {
-      name: "Because Bitcoin Academy",
-      tools: ["React", "NextJS", "Node.js", "SanityCMS"],
+      name: "BB Academy",
+      tools: ["React", "Next.js", "Node.js", "SanityCMS", "Stripe", "Vimeo", "Google Cloud Functions", "Firebase"],
       features_image: BB2,
       description:
-        "Backend course portal with Stripe paywall, using Vimeo and SanityCMS for seamless content management",
-      liveLink: "https://www.becausebitcoin.com/academy",
-      github: "https://github.com/MiredWebServices/BecauseBitcoin",
+        "Proprietary course and content platform for BecauseBitcoin, providing a seamless CMS-like experience for creating, selling, and managing educational content. I built the end-to-end academy experience, including checkout flows and modular course management, driving new revenue streams and enabling self-serve course publishing for the team.",
+      liveLink: "",
+      github: "",
     },
     {
-      name: "Twitch Clone",
-      tools: ["JavaScript", "TailwindCSS", "NextJS", "RestAPI's"],
-      features_image: TwitchClone,
-      description: "Interactice twitch Clone",
-      liveLink: "https://twitch-clone-fawn.vercel.app",
-      github: "https://github.com/ornelasedward/twitch_clone",
+      name: "Telos Health",
+      tools: ["Angular", "NestJS", "PostgreSQL", "SCSS", "Docker", "Directus"],
+      features_image: kahot,
+      description:
+        "Modular healthcare platform supporting clinicians, admins, and patients for home health agencies with HIPAA-compliant infrastructure. I built responsive frontend components and secure backend APIs, helping launch across 3 portals with 20,000+ patients and supporting investor demos through performance-optimized landing pages.",
+      liveLink: "",
+      github: "",
     },
     // {
     //   name: "Daizy AI",

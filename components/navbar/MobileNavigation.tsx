@@ -18,12 +18,12 @@ const MobileMenu = () => {
   const openNavbar = () => {
     setIsOpen(!isOpen);
   };
-  const menuItems = [
-    { label: 'EN', path: '/' },
-    { label: 'SP', path: '/' },
-    { label: 'BD', path: '/' },
-    // Add more menu items here
-  ];
+  // const menuItems = [
+  //   { label: 'EN', path: '/' },
+  //   { label: 'SP', path: '/' },
+  //   { label: 'BD', path: '/' },
+  //   // Add more menu items here
+  // ];
   return (
     <div className="navbar  z-50 bg-primary-dark y  left-0 py-5 right-0 hidden px-4">
       <div className="flex justify-between">
@@ -33,6 +33,7 @@ const MobileMenu = () => {
           <RiMenu3Fill className={`text-white`} size={25} />
         </button>
       </div>
+      
       <div
         className={` fixed  bg-primary-dark   mobile_navbar 2xl:px-0 px-4 pt-6 w-full h-full   ${
           isOpen ? 'right-0' : 'right-full'
@@ -46,6 +47,7 @@ const MobileMenu = () => {
             size={36}
           />
         </div>
+        
         <ul className="flex flex-col  pt-7 md:flex-row gap-6">
           {navLinksData.map(link => (
             <li key={link.href} onClick={openNavbar}>
@@ -58,7 +60,7 @@ const MobileMenu = () => {
               </Link>
             </li>
           ))}
-          <Menu menuItems={menuItems} />
+          {/* <Menu menuItems={menuItems} /> */}
         </ul>
       </div>
     </div>
