@@ -9,30 +9,7 @@ import { github, linkedin, twitterX, youtube } from '@/assets/icons';
 import MobileNavbar from '@/components/navbar/MobileNavigation';
 
 const fira_code = Fira_Code({ subsets: ['latin'] });
-export const metadata: Metadata = {
-  title: "Edward's portfolio",
-  description: 'Full stack engineer and technical leader',
-  openGraph: {
-    images: [
-      {
-        url: '/images/header-img.png',
-        width: 1200,
-        height: 630,
-        alt: "Header image for Edward's portfolio",
-      },
-    ],
-  },
-  twitter: {
-    images: [
-      {
-        url: '/images/header-img.png',
-        width: 1200,
-        height: 630,
-        alt: "Header image for Edward's portfolio",
-      },
-    ],
-  },
-};
+
 
 export default function RootLayout({
   children,
@@ -41,6 +18,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Edward's portfolio</title>
+        <meta name="description" content="Full stack engineer and technical leader" />
+        {/* Open Graph */}
+        <meta property="og:title" content="Edward's portfolio" />
+        <meta property="og:description" content="Full stack engineer and technical leader" />
+        <meta property="og:image" content="/images/header-img.png" />
+        <meta property="og:type" content="website" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Edward's portfolio" />
+        <meta name="twitter:description" content="Full stack engineer and technical leader" />
+        <meta name="twitter:image" content="/images/header-img.png" />
+      </head>
       <body className={fira_code.className}>
         {/* Navbar */}
         <div className="xl:block hidden relative">
