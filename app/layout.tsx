@@ -5,7 +5,7 @@ import { Fira_Code } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
-import { github, linkedin, twitter, youtube } from '@/assets/icons';
+import { github, linkedin, twitterX, youtube } from '@/assets/icons';
 import MobileNavbar from '@/components/navbar/MobileNavigation';
 
 const fira_code = Fira_Code({ subsets: ['latin'] });
@@ -37,8 +37,8 @@ export default function RootLayout({
           <Image src={linkedin} alt="linkedin" />
         </Link>
         {/* Twitter Link */}
-        <Link href="https://twitter.com/_THECRYPTODEV" className="flex">
-          <Image src={twitter} alt="twitter" />
+        <Link href="https://twitter.com/_THECRYPTODEV" className="flex invert items-center justify-center">
+          <Image src={twitterX} alt="twitter" />
         </Link>
         {/* YouTube Link */}
         <Link href="https://www.youtube.com/edward-ornelas" className="flex">

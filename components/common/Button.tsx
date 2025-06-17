@@ -7,7 +7,7 @@ interface ButtonProps {
   type?: 'primary' | 'secondary' | 'outline'; // Corrected typo here
   link?: string;
   target?: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   target,
   onClick,
 }) => {
-  const buttonClasses = `px-5 font-medium flex flex-wrap items-center py-1.5 ${
+  const buttonClasses = `px-5 font-medium inline-flex flex-wrap items-center py-1.5 ${
     type === 'primary'
       ? 'bg-transparent border border-primary text-white hover:bg-primary hover:text-black transition duration-300 ease-in-out'
       : type === 'secondary'
@@ -26,12 +26,20 @@ const Button: React.FC<ButtonProps> = ({
       : 'bg-transparent border-none text-primary px-0' // Outline style when type is not provided or 'outline'
   }`;
 
+  if (link) {
+    return (
+      <Link href={link} target={target} passHref legacyBehavior>
+        <a className={buttonClasses} onClick={onClick}>
+          {name} {icon && <span className="mr-2">{icon}</span>}
+        </a>
+      </Link>
+    );
+  }
+
   return (
-    <Link target={target} href={link || '/'} passHref>
-      <button onClick={onClick} className={buttonClasses}>
-        {name} {icon && <span className="mr-2">{icon}</span>}
-      </button>
-    </Link>
+    <button onClick={onClick} className={buttonClasses} type="button">
+      {name} {icon && <span className="mr-2">{icon}</span>}
+    </button>
   );
 };
 

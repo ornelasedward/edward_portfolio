@@ -16,7 +16,7 @@ const Hero = () => {
               Building  <span className=" text-primary">Next-Gen Platforms</span> From First Commit to Scaled Launch
               </h2>
               <p>
-              Full stack engineer and technical leader, driving complex products across crypto, healthcare, and edtech—specializing in scalable architecture, team leadership, and seamless user experiences.
+              Full stack engineer and technical leader, driving products across crypto, healthcare, and edtech—specializing in scalable architecture, team leadership, and seamless user experiences.
               </p>
               <div className="pt-6">
                 <Button link="contact" name="Contact me" />

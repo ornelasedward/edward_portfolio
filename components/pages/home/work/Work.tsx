@@ -20,9 +20,9 @@ const Work = () => {
             </h2>
             <div className=" h-[1px] w-[40px] sm:w-[70px] md:w-[40%] bg-primary md:block hidden"></div>
           </div>
-          <div>
+          {/* <div>
             <Button name="View all" type="outline" icon="~~>" link="projects" />
-          </div>
+          </div> */}
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.complete.slice(0, 3).map((data) => (
