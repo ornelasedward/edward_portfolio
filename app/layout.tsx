@@ -19,16 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Edward's portfolio</title>
+        <title>Edward&apos;s portfolio</title>
         <meta name="description" content="Full stack engineer and technical leader" />
         {/* Open Graph */}
-        <meta property="og:title" content="Edward's portfolio" />
+        <meta property="og:title" content="Edward&apos;s portfolio" />
         <meta property="og:description" content="Full stack engineer and technical leader" />
         <meta property="og:image" content="/images/header-img.png" />
         <meta property="og:type" content="website" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Edward's portfolio" />
+        <meta name="twitter:title" content="Edward&apos;s portfolio" />
         <meta name="twitter:description" content="Full stack engineer and technical leader" />
         <meta name="twitter:image" content="/images/header-img.png" />
       </head>
