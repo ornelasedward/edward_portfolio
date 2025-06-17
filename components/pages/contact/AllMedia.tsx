@@ -1,4 +1,4 @@
-import { github, linkedin, twitter } from '@/assets/icons';
+import { github, linkedin, twitterX } from '@/assets/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -38,12 +38,12 @@ const AllMedia = () => {
             <span className=" text-base text-gray">YouTube</span>
           </Link>
           <Link
-            href={'https://www.twitter.com/@THECRYPTODEV'}
+            href={'https://www.twitter.com/@_THECRYPTODEV'}
             target="_blank"
             className=" flex items-center gap-0"
           >
-            <Image src={twitter} alt="@THECRYPTODEV" />
-            <span className=" text-base text-gray">@THECRYPTODEV</span>
+            <Image src={twitterX} alt="@_THECRYPTODEV" />
+            <span className=" text-base text-gray">@_THECRYPTODEV</span>
           </Link>
         </div>
       </div>

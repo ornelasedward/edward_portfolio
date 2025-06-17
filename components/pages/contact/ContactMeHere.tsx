@@ -5,12 +5,14 @@ import React from 'react';
 const ContactMeHere = () => {
   return (
     <div className=" flex flex-col w-full lg:flex-row gap-3">
+      {/*}
       <div className=" w-full">
         <div className=" w-full border border-gray p-2">
           <div className=" text-base te">Contact me here</div>
           <p>(575) 513-6238</p>
         </div>
       </div>
+      {/*}*/}
       <div className=" w-full  border border-gray p-2 space-y-3">
         <h6>Message me here</h6>
         <ul className="s space-y-1">

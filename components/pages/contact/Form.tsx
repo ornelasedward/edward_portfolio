@@ -19,7 +19,7 @@ const Inquire = () => {
   return (
     <div className=" lg:flex  justify-between">
       <h2 className=" basis-[45%]">
-        <span className=" text-primary">#</span>inquire-here
+        <span className=" text-primary">#</span>inquiries
       </h2>
       <div className="s basis-[55%]">
         <form className=" pt-5 grid gap-3 lg:gap-6" onSubmit={handleSubmit}>
