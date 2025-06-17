@@ -20,33 +20,22 @@ const AboutMe = () => {
           <div className=" basis-1/2  space-y-4 ">
             <div className="space-y-3 pb-4">
               <p>
-                Based in Dallas, Texas, I&apos;m a full-stack developer and
-                content strategist. My journey began 7 years ago while honing
-                content strategy, and blending it with my affinity for
-                cryptocurrency. This path has offered me the space to navigate
-                life, explore emerging trends, and discover my passion for
-                development. Transitioning into the tech sphere,
+                Based in Dallas, Texas, I&apos;m a full-stack engineer and technical leader specializing in crypto, healthcare, and edtech platforms. My journey began at the intersection of content strategy and emerging tech, but quickly evolved as I led engineering teams and launched high-impact products for fast-growth startups and complex organizations.
               </p>
               <p>
-                I&apos;ve spent the past 2 years immersing myself in the world
-                of development. The blend of these skills allows me to build
-                robust, interactive websites from scratch and elevate them into
-                dynamic user-centric experiences.
+                I&apos;ve architected and scaled platforms like BB Terminal (crypto analytics suite), Telos Health (modular healthcare platform), and BB Academy (education CMS), driving projects from initial concept to production deployment. I&apos;m passionate about building robust systems end-to-end, leading teams, and applying the latest in cloud, security, and modern frameworks to deliver user-driven experiences.
               </p>
               <p>
-                Currently pursuing a Bachelor&apos;s in ICT with a cybersecurity
-                focus, I&apos;m set to graduate in May 2025. I consistently aim
-                to implement the latest technologies and security best practices
-                in every project I undertake.
+                I hold a Bachelor&apos;s in ICT with a concentration in cybersecurity, and I consistently bring technical depth, product vision, and a bias for action to every project—always pushing for best practices, strong security, and future-ready solutions.
               </p>
             </div>
             <Button name="Read more ->" type="primary" />
           </div>
           <div className=" relative ">
             <Image
-              className=" relative z-20"
+              className=" relative z-20 grayscale"
               src={about_me_home_image}
-              alt="tarif_al_hasan"
+              alt="Edward Ornelas"
             />
             <div className=" absolute left-[20%] top-9">
               <Image alt="dots" src={dots} />

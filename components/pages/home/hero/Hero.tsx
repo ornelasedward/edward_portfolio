@@ -11,17 +11,14 @@ const Hero = () => {
       <Container>
         <div className=" overflow-hidden flex flex-col gap-3 lg:gap-0 lg:flex-row">
           <div className=" basis-[60%] ">
-            <div className="space-y-3 lg:pt-[94px]">
+            <div className="space-y-3 lg:pt-[94px] max-w-[700px]">
               <h2>
-                I am a{' '}
-                <span className=" text-primary">full stack developer </span>
-                and <span className=" text-primary">content strategist.</span>
+              Building  <span className=" text-primary">Next-Gen Platforms</span> From First Commit to Scaled Launch
               </h2>
               <p>
-                I blend the power of tech with the insight of{' '}
-                <br className=" hidden lg:block" /> social strategy.
+              Full stack engineer and technical leader, driving complex products across crypto, healthcare, and edtech—specializing in scalable architecture, team leadership, and seamless user experiences.
               </p>
-              <div>
+              <div className="pt-6">
                 <Button link="contact" name="Contact me" />
               </div>
             </div>
@@ -29,7 +26,7 @@ const Hero = () => {
           <div className=" basis-[40%] relative">
             <div>
               <Image
-                className=" w-full  h-full object-cover"
+                className="w-full h-full object-cover grayscale"
                 src={heroImage}
                 alt="hero_image"
               />
@@ -42,7 +39,7 @@ const Hero = () => {
                 </p>
                 <a
                     href="https://app.bbterminal.com/"
-                    className="text-yellow-400 font-semibold underline hover:text-primary transition-colors"
+                    className="text-primary font-semibold underline hover:text-primary transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
