@@ -12,10 +12,26 @@ const fira_code = Fira_Code({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: "Edward's portfolio",
   description: 'Full stack engineer and technical leader',
-};
-
-export const customMetadata = {
-  headerImage: '/images/header-img.png',
+  openGraph: {
+    images: [
+      {
+        url: '/images/header-img.png',
+        width: 1200,
+        height: 630,
+        alt: "Header image for Edward's portfolio",
+      },
+    ],
+  },
+  twitter: {
+    images: [
+      {
+        url: '/images/header-img.png',
+        width: 1200,
+        height: 630,
+        alt: "Header image for Edward's portfolio",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
