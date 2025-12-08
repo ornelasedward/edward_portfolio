@@ -20,7 +20,7 @@ const AboutMe = () => {
           <div className=" basis-1/2  space-y-4 ">
             <div className="space-y-3 pb-4">
               <p>
-                Based in Dallas, Texas, I&apos;m a full-stack engineer and technical leader specializing in crypto, healthcare, and edtech platforms. My journey began at the intersection of content strategy and emerging tech, but quickly evolved as I led engineering teams and launched high-impact products for fast-growth startups and organizations.
+                Based in Austin, Texas, I&apos;m a full-stack engineer and technical leader specializing in crypto, healthcare, and edtech platforms. My journey began at the intersection of content strategy and emerging tech, but quickly evolved as I led engineering teams and launched high-impact products for fast-growth startups and organizations.
               </p>
               <p>
                 I&apos;ve architected and scaled platforms like BB Terminal (crypto analytics suite), Telos Health (modular healthcare platform), and BB Academy (education CMS), driving projects from initial concept to production deployment. I&apos;m passionate about building robust systems end-to-end, leading teams, and applying the latest in cloud, security, and modern frameworks to deliver user-driven experiences.
