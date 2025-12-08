@@ -87,7 +87,7 @@ const Inquire = () => {
               className=" border  focus:ring-0   border-gray "
               color="teal"
               id="title"
-              label="Title"
+              label="Subject"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
