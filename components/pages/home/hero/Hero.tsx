@@ -2,8 +2,11 @@ import React from 'react';
 
 import Image from 'next/image';
 import { a1, heroImage } from '@/assets';
+import { github, youtube } from '@/assets/icons';
 import Button from '@/components/common/Button';
 import Container from '@/components/Container';
+import { FaGithub, FaYoutube } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
 const Hero = () => {
   return (
@@ -18,8 +21,20 @@ const Hero = () => {
               <p>
               Full stack engineer and technical leader, driving products across crypto, healthcare, and edtech—specializing in scalable architecture, team leadership, and seamless user experiences.
               </p>
-              <div className="pt-6">
-                <Button link="contact" name="Contact me" />
+              <div className="pt-6 flex flex-wrap gap-3">
+                <Button link="contact" name="Contact me" icon={<MdEmail size={20} />} />
+                <Button 
+                  link="https://github.com/ornelasedward" 
+                  name="Github" 
+                  icon={<FaGithub size={20} />}
+                  target="_blank"
+                />
+                <Button 
+                  link="https://www.youtube.com/@edward-ornelas" 
+                  name="Youtube" 
+                  icon={<FaYoutube size={20} />}
+                  target="_blank"
+                />
               </div>
             </div>
           </div>

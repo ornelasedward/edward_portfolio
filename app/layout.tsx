@@ -63,7 +63,7 @@ export default function RootLayout({
           <Image src={linkedin} alt="linkedin" />
         </Link>
         {/* Twitter Link */}
-        <Link href="https://twitter.com/_THECRYPTODEV" className="flex invert items-center justify-center">
+        <Link href="https://x.com/_edwardornelas" className="flex invert items-center justify-center">
           <Image src={twitterX} alt="twitter" />
         </Link>
         {/* YouTube Link */}

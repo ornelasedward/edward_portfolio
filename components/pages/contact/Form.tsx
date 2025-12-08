@@ -29,12 +29,16 @@ const Inquire = () => {
               id="name"
               label="Name"
               color="teal"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <Input
               className=" border  focus:ring-0   border-gray "
               color="teal"
               id="email"
               label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="grid">
@@ -43,6 +47,8 @@ const Inquire = () => {
               color="teal"
               id="title"
               label="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="grid">
@@ -52,6 +58,7 @@ const Inquire = () => {
               name="message"
               label="Message"
               value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </div>
           <div className="flex justify-end">

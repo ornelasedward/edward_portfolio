@@ -41,7 +41,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href={'https://x.com/_THECRYPTODEV'} target="_blank">
+                <Link href={'https://x.com/_edwardornelas'} target="_blank">
                   <Image src={twitterX} alt="twitter" className="brightness-0 invert drop-shadow-[0_0_4px_#60a5fa]" />
                 </Link>
               </li>

@@ -38,12 +38,12 @@ const AllMedia = () => {
             <span className=" text-base text-gray">YouTube</span>
           </Link>
           <Link
-            href={'https://www.twitter.com/@_THECRYPTODEV'}
+            href={'https://x.com/_edwardornelas'}
             target="_blank"
             className=" flex items-center gap-0"
           >
-            <Image src={twitterX} alt="@_THECRYPTODEV" />
-            <span className=" text-base text-gray">@_THECRYPTODEV</span>
+            <Image src={twitterX} alt="_edwardornelas" />
+            <span className=" text-base text-gray">_edwardornelas</span>
           </Link>
         </div>
       </div>
