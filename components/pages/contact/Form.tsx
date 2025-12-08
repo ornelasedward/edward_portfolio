@@ -105,7 +105,7 @@ const Inquire = () => {
           {/* Status Messages */}
           {submitStatus === 'success' && (
             <div className="p-3 bg-green-900/20 border border-green-500 text-green-400 rounded">
-              Message sent successfully! I'll get back to you soon.
+              Message sent successfully! I&apos;ll get back to you soon.
             </div>
           )}
           {submitStatus === 'error' && (
