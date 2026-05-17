@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Edward Ornelas — Full Stack Engineer · Founding Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #0f0f0f;
+    --bg-3: #131313;
+    --text: #ececec;
+    --muted: #8a8a8a;
+    --dim: #5a5a5a;
+    --accent: #f5a623;
+    --accent-soft: rgba(245, 166, 35, 0.15);
+    --border: #1c1c1c;
+    --border-2: #2a2a2a;
+    --border-hover: #f5a623;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #000; }
+
+  /* ── LAYOUT SCAFFOLDING ───────────────────────────── */
+  .page { position: relative; padding-left: 88px; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 64px; }
+
+  /* Side rail with vertical line + socials */
+  .rail {
+    position: fixed;
+    top: 0; left: 0;
+    width: 88px; height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding: 32px 0;
+    border-right: 1px solid var(--border);
+    z-index: 50;
+    background: var(--bg);
+  }
+  .rail::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    width: 1px; height: 180px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    transform: translateX(-50%);
+  }
+  .rail-socials { display: flex; flex-direction: column; gap: 22px; margin-top: 240px; }
+  .rail-socials a {
+    width: 22px; height: 22px;
+    display: grid; place-items: center;
+    color: var(--muted);
+    transition: color .2s ease, transform .2s ease;
+  }
+  .rail-socials a:hover { color: var(--accent); transform: translateY(-2px); }
+  .rail-socials svg { width: 100%; height: 100%; }
+
+  /* ── NAV ──────────────────────────────────────────── */
+  nav.topnav {
+    position: sticky; top: 0; z-index: 40;
+    backdrop-filter: blur(12px);
+    background: rgba(10, 10, 10, 0.78);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 64px;
+    max-width: 1400px; margin: 0 auto;
+  }
+  .logo {
+    font-weight: 700; font-size: 22px;
+    letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-mark {
+    font-size: 18px; color: var(--accent);
+    transform: translateY(1px);
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .15s ease;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a .hash { color: var(--accent); margin-right: 1px; }
+
+  /* ── HERO ─────────────────────────────────────────── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+    align-items: center;
+    padding: 96px 64px 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 5.2vw, 76px);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .hero h1 .yellow { color: var(--accent); }
+  .hero p.sub {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 540px;
+    margin-top: 36px;
+    line-height: 1.7;
+  }
+  .hero-ctas { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 22px;
+    border: 1px solid var(--accent);
+    color: var(--text);
+    background: transparent;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .btn:hover { background: var(--accent); color: #000; transform: translateY(-2px); }
+  .btn svg { width: 16px; height: 16px; }
+
+  .hero-photo {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 560px;
+    justify-self: end;
+    width: 100%;
+  }
+  .hero-photo::before,
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    width: 160px; height: 160px;
+    border: 2px solid var(--accent);
+    z-index: 0;
+  }
+  .hero-photo::before { top: 28%; left: -36px; }
+  .hero-photo::after { top: 38%; left: 22px; }
+  .hero-photo img {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05);
+  }
+  .hero-photo .placeholder {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    background:
+      linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    display: grid; place-items: center;
+    color: var(--dim);
+    font-size: 12px;
+    border: 1px solid var(--border);
+  }
+
+  /* ── INFO BAR (under hero) ────────────────────────── */
+  .infobar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-2);
+  }
+  .infobar-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .info-cell {
+    padding: 32px 28px;
+    border-right: 1px solid var(--border);
+  }
+  .info-cell:last-child { border-right: none; }
+  .info-label {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .info-value {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+  .info-value .dot { color: var(--accent); margin: 0 6px; }
+
+  /* ── SECTION HEADERS ──────────────────────────────── */
+  section { padding: 120px 0; position: relative; }
+  .section-head {
+    margin-bottom: 64px;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .section-tag {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .section-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .section-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border-2);
+    min-width: 80px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 620px;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  /* ── WORK / PROJECTS ──────────────────────────────── */
+  .projects { display: flex; flex-direction: column; gap: 0; }
+  .project {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+    transition: padding .25s ease;
+  }
+  .project:last-child { border-bottom: 1px solid var(--border); }
+  .project:hover { padding-left: 16px; padding-right: 16px; }
+  .project:hover .proj-num { color: var(--accent); }
+
+  .proj-num {
+    color: var(--dim);
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 6px;
+    transition: color .25s ease;
+  }
+  .proj-main h3 {
+    font-size: clamp(26px, 2.6vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    line-height: 1.15;
+  }
+  .proj-meta {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .proj-meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .proj-meta .pill {
+    border: 1px solid var(--border-2);
+    padding: 4px 10px;
+    color: var(--text);
+  }
+  .proj-desc {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+  .proj-highlight {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    margin-top: 6px;
+  }
+  .proj-highlight .num {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .proj-highlight .label {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .proj-side {
+    padding-top: 8px;
+  }
+  .proj-stack-label {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack-tag {
+    border: 1px solid var(--border-2);
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    transition: all .15s ease;
+  }
+  .stack-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── TECH STACK ───────────────────────────────────── */
+  .stack-section { background: var(--bg-2); }
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .stack-cell {
+    background: var(--bg);
+    padding: 32px;
+    transition: background .2s ease;
+  }
+  .stack-cell:hover { background: var(--bg-3); }
+  .stack-cell-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stack-cell-head .icon-box {
+    width: 36px; height: 36px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    display: grid; place-items: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .stack-cell-head h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .stack-list span { color: var(--text); }
+  .stack-list span::after {
+    content: '·';
+    color: var(--accent);
+    margin-left: 14px;
+  }
+  .stack-list span:last-child::after { content: ''; }
+
+  /* ── AI TOOLKIT ───────────────────────────────────── */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .ai-card {
+    border: 1px solid var(--border);
+    padding: 28px 24px;
+    transition: all .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .ai-card:hover { border-color: var(--border-2); background: var(--bg-2); }
+  .ai-card:hover::before { transform: scaleX(1); }
+  .ai-card-num {
+    color: var(--accent);
+    font-size: 12px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .ai-card h4 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .ai-card .role {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .ai-card p {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ── ABOUT ────────────────────────────────────────── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-body p {
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+  }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body .accent-text { color: var(--accent); }
+  .stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .stat {
+    padding: 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat:last-child { border-bottom: none; }
+  .stat-value {
+    color: var(--accent);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .stat-label {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTACT ──────────────────────────────────────── */
+  .contact-section { background: var(--bg-2); border-top: 1px solid var(--border); }
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contact-headline {
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .contact-headline .yellow { color: var(--accent); }
+  .contact-blurb {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .contact-list {
+    display: flex; flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .contact-row {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: background .15s ease;
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row:hover { background: var(--bg); }
+  .contact-row:hover .contact-value { color: var(--accent); }
+  .contact-label {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .contact-value {
+    font-size: 14px;
+    color: var(--text);
+    transition: color .15s ease;
+  }
+
+  /* ── FOOTER ───────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer .yellow { color: var(--accent); }
+
+  /* ── RESPONSIVE ───────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .page { padding-left: 0; }
+    .rail { display: none; }
+    .nav-inner, .hero, .container, footer { padding-left: 32px; padding-right: 32px; }
+    .hero { grid-template-columns: 1fr; padding-top: 64px; padding-bottom: 48px; }
+    .hero-photo { max-width: 420px; justify-self: start; }
+    .infobar-inner { grid-template-columns: repeat(2, 1fr); }
+    .info-cell:nth-child(2) { border-right: none; }
+    .info-cell:nth-child(1),
+    .info-cell:nth-child(2) { border-bottom: 1px solid var(--border); }
+    .project { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+    .proj-num { padding-top: 0; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .ai-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+    section { padding: 80px 0; }
+  }
+  @media (max-width: 600px) {
+    .nav-inner, .hero, .container, footer { padding-left: 20px; padding-right: 20px; }
+    .nav-links { gap: 14px; font-size: 12px; }
+    .nav-links a { font-size: 12px; }
+    .infobar-inner { grid-template-columns: 1fr; }
+    .info-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    .info-cell:last-child { border-bottom: none; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .section-head { margin-bottom: 40px; }
+    .hero-ctas .btn { padding: 10px 16px; font-size: 13px; }
+  }
+
+  /* Subtle fade-in on load */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero p.sub, .hero-ctas { animation: rise .6s ease-out backwards; }
+  .hero p.sub { animation-delay: .12s; }
+  .hero-ctas { animation-delay: .22s; }
+</style>
+</head>
+<body>
+
+<!-- ╔════════ SIDE RAIL (socials) ════════╗ -->
+<aside class="rail">
+  <div class="rail-socials">
+    <a href="https://github.com/ornelasedward" aria-label="GitHub" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/edward-ornelas" aria-label="LinkedIn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+    </a>
+    <a href="https://x.com/" aria-label="X / Twitter" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.5 11.24h-6.66l-5.214-6.817-5.97 6.817H1.673l7.73-8.835L1.25 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.16 17.52h1.833L7.084 4.126H5.117L17.084 19.77Z"/></svg>
+    </a>
+    <a href="https://youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5C1.6 4.4.8 5.2.5 6.2 0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+    </a>
+  </div>
+</aside>
+
+<div class="page">
+
+  <!-- ╔════════ NAV ════════╗ -->
+  <nav class="topnav">
+    <div class="nav-inner">
+      <div class="logo"><span class="logo-mark">eo</span>Edward</div>
+      <div class="nav-links">
+        <a href="#home"><span class="hash">#</span>home</a>
+        <a href="#work"><span class="hash">#</span>work</a>
+        <a href="#about-me"><span class="hash">#</span>about-me</a>
+        <a href="#contacts"><span class="hash">#</span>contacts</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ╔════════ HERO ════════╗ -->
+  <section class="hero" id="home" style="padding-top:64px;">
+    <div>
+      <h1>Give me the idea and I'll engineer a product that <span class="yellow">ships fast and holds up.</span></h1>
+      <p class="sub">AI-native full stack engineer and founding builder shipping complete products end to end. Backend, frontend, AI systems, security, and infrastructure, built with modern tooling and live in production from day one.</p>
+      <div class="hero-ctas">
+        <a href="#contacts" class="btn">Contact me
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M3 7l2-2h14l2 2"/></svg>
+        </a>
+        <a href="https://github.com/ornelasedward" target="_blank" rel="noopener" class="btn">Github
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3"/></svg>
+        </a>
+        <a href="https://youtube.com/" target="_blank" rel="noopener" class="btn">Youtube
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5C1.6 4.4.8 5.2.5 6.2 0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <!-- Edward can swap this placeholder for his real photo -->
+      <div class="placeholder">[ photo placeholder ]</div>
+    </div>
+  </section>
+
+  <!-- ╔════════ INFO BAR ════════╗ -->
+  <div class="infobar">
+    <div class="infobar-inner">
+      <div class="info-cell">
+        <div class="info-label">Role</div>
+        <div class="info-value">Full Stack Engineer <span class="dot">·</span> Founding Builder</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Built In</div>
+        <div class="info-value">Healthcare <span class="dot">·</span> Fintech <span class="dot">·</span> Crypto <span class="dot">·</span> Creator Economy</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Favorite AI Stack</div>
+        <div class="info-value">Cursor <span class="dot">·</span> Codex <span class="dot">·</span> Claude</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Education</div>
+        <div class="info-value">B.S. Information &amp; Communications Technology <span class="dot">·</span> Cyber Defense</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔════════ WORK ════════╗ -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">// work</span>
+        <h2 class="section-title">Selected products shipped</h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">A few systems I've taken from rough idea to production, serving real users at real scale.</p>
+      </div>
+
+      <div class="projects">
+
+        <!-- Project 01 -->
+        <article class="project">
+          <div class="proj-num">// 01</div>
+          <div class="proj-main">
+            <h3>BB Terminal</h3>
+            <div class="proj-meta">
+              <span class="pill">Lead Software Engineer</span>
+              <span>2024 → Present</span>
+              <span>BecauseBitcoin</span>
+            </div>
+            <p class="proj-desc">A real-time crypto analytics platform serving over two thousand daily active users across 62 networks and 100k+ tokens. Architected the microservices powering live charting, hardened the auth layer with wallet encryption, per-user throttling, Cloudflare WAF, and domain-validated webhook verification, and integrated AI for portfolio risk insights and anomaly detection.</p>
+            <div class="proj-highlight">
+              <span class="num">322ms</span>
+              <span class="label">load time · live for 2,000+ DAU</span>
+            </div>
+          </div>
+          <div class="proj-side">
+            <div class="proj-stack-label">Stack</div>
+            <div class="stack-tags">
+              <span class="stack-tag">C# / .NET</span>
+              <span class="stack-tag">Azure</span>
+              <span class="stack-tag">Docker</span>
+              <span class="stack-tag">Redis</span>
+              <span class="stack-tag">PostgreSQL</span>
+              <span class="stack-tag">Cloudflare WAF</span>
+              <span class="stack-tag">Sentry</span>
+              <span class="stack-tag">LLM / AI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02 -->
+        <article class="project">
+          <div class="proj-num">// 02</div>
+          <div class="proj-main">
+            <h3>BecauseBitcoin News &amp; Analytics</h3>
+            <div class="proj-meta">
+              <span class="pill">Full Stack Engineer</span>
+              <span>2023 → 2024</span>
+              <span>BecauseBitcoin</span>
+            </div>
+            <p class="proj-desc">The core news and analytics platform behind BecauseBitcoin, serving 4,000+ registered readers and powering BB Terminal's real-time charting and multi-provider data ingestion. Built an LLM-powered editorial pipeline that ships 20 articles per day — a 20× increase over the manual workflow it replaced — while standing up bot detection, automated IP blacklisting, and encrypted user data.</p>
+            <div class="proj-highlight">
+              <span class="num">20×</span>
+              <span class="label">editorial output via LLM pipeline</span>
+            </div>
+          </div>
+          <div class="proj-side">
+            <div class="proj-stack-label">Stack</div>
+            <div class="stack-tags">
+              <span class="stack-tag">C# / .NET</span>
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Next.js</span>
+              <span class="stack-tag">Azure Containers</span>
+              <span class="stack-tag">LLM Pipelines</span>
+              <span class="stack-tag">REST APIs</span>
+              <span class="stack-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03 -->
+        <article class="project">
+          <div class="proj-num">// 03</div>
+          <div class="proj-main">
+            <h3>Telos Health</h3>
+            <div class="proj-meta">
+              <span class="pill">Software Engineer · Co-lead</span>
+              <span>2023 → 2024</span>
+              <span>Healthcare</span>
+            </div>
+            <p class="proj-desc">A clinician workflow platform that automated the daily admin overhead inside a healthcare org, saving an average of two hours per clinician per day. Co-led the build end-to-end: shipped the client-facing landing page that drove a 40% lift in investor visibility and closed two strategic partnerships, and put auth and replication in place to protect data integrity across server deployments.</p>
+            <div class="proj-highlight">
+              <span class="num">2 hrs/day</span>
+              <span class="label">reclaimed per clinician · two partnerships closed</span>
+            </div>
+          </div>
+          <div class="proj-side">
+            <div class="proj-stack-label">Stack</div>
+            <div class="stack-tags">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Node</span>
+              <span class="stack-tag">PostgreSQL</span>
+              <span class="stack-tag">Auth Systems</span>
+              <span class="stack-tag">Replication</span>
+              <span class="stack-tag">Firebase</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════ TECH STACK ════════╗ -->
+  <section class="stack-section" id="stack">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">// stack</span>
+        <h2 class="section-title">What I build with</h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">The tools I reach for to take products from a blank repo to live in production.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-cell">
+          <div class="stack-cell-head">
+            <div class="icon-box">{ }</div>
+            <h4>Languages</h4>
+          </div>
+          <div class="stack-list">
+            <span>Python</span><span>C#</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span>
+          </div>
+        </div>
+
+        <div class="stack-cell">
+          <div class="stack-cell-head">
+            <div class="icon-box">&lt;/&gt;</div>
+            <h4>Frontend</h4>
+          </div>
+          <div class="stack-list">
+            <span>React</span><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>HTML / CSS</span>
+          </div>
+        </div>
+
+        <div class="stack-cell">
+          <div class="stack-cell-head">
+            <div class="icon-box">⟨⟩</div>
+            <h4>Backend</h4>
+          </div>
+          <div class="stack-list">
+            <span>.NET</span><span>Node.js</span><span>Python</span><span>REST APIs</span><span>Microservices</span>
+          </div>
+        </div>
+
+        <div class="stack-cell">
+          <div class="stack-cell-head">
+            <div class="icon-box">DB</div>
+            <h4>Data</h4>
+          </div>
+          <div class="stack-list">
+            <span>PostgreSQL</span><span>Redis</span><span>Firebase</span><span>BigQuery</span>
+          </div>
+        </div>
+
+        <div class="stack-cell">
+          <div class="stack-cell-head">
+            <div class="icon-box">☁</div>
+            <h4>Cloud &amp; Infra</h4>
+          </div>
+          <div class="stack-list">
+            <span>Azure</span><span>AWS</span><span>GCP</span><span>Docker</span><span>Linux</span><span>CI/CD</span>
+          </div>
+        </div>
+
+        <div class="stack-cell">
+          <div class="stack-cell-head">
+            <div class="icon-box">🔒</div>
+            <h4>Security</h4>
+          </div>
+          <div class="stack-list">
+            <span>Auth systems</span><span>Encryption</span><span>Cloudflare WAF</span><span>Rate limiting</span><span>Sentry</span><span>Bot detection</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════ AI TOOLKIT ════════╗ -->
+  <section id="ai">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">// ai-toolkit</span>
+        <h2 class="section-title">AI-native toolkit</h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">The tools that shorten the distance between idea and shipped product.</p>
+      </div>
+
+      <div class="ai-grid">
+        <div class="ai-card">
+          <span class="ai-card-num">[ 01 ]</span>
+          <h4>Cursor</h4>
+          <div class="role">Primary IDE</div>
+          <p>Where the code actually gets written. Pair-programming with frontier models in the loop turns half-day tasks into half-hour tasks.</p>
+        </div>
+        <div class="ai-card">
+          <span class="ai-card-num">[ 02 ]</span>
+          <h4>Codex</h4>
+          <div class="role">Code generation</div>
+          <p>Reach-for-it tool for scaffolding, refactors, and turning a paragraph of intent into working code in a single pass.</p>
+        </div>
+        <div class="ai-card">
+          <span class="ai-card-num">[ 03 ]</span>
+          <h4>Claude</h4>
+          <div class="role">Reasoning &amp; product thinking</div>
+          <p>Architecture decisions, gnarly debugging, and the kind of long-context reasoning that turns rough specs into clean systems.</p>
+        </div>
+        <div class="ai-card">
+          <span class="ai-card-num">[ 04 ]</span>
+          <h4>Anthropic API</h4>
+          <div class="role">In-product AI</div>
+          <p>The layer I ship AI features on. RAG systems, agentic workflows, and LLM pipelines integrated directly into production products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════ ABOUT ════════╗ -->
+  <section class="stack-section" id="about-me">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">// about-me</span>
+        <h2 class="section-title">A little about me</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-body">
+          <p>I'm a <span class="accent-text">full stack engineer and founding builder</span> based in Austin, Texas. I take products from rough whiteboard idea to live in production — backend, frontend, AI, security, and the infrastructure underneath.</p>
+          <p>I started as the first engineer on a small team and grew into leading a six-engineer org building real-time financial analytics for thousands of daily users. Along the way I shipped LLM-powered editorial pipelines, hardened auth systems, healthcare workflow tools, and a stack of internal products nobody ever sees but plenty of people rely on.</p>
+          <p>My approach is simple: <span class="accent-text">if it can be built, I'll figure out how to ship it.</span> I'm optimistic by default about new tech, allergic to long specs, and I treat "I haven't done that before" as a starting point, not an excuse.</p>
+          <p>I'm AI-native by habit — I build with modern tooling because the gap between idea and shipped product has never been smaller, and I'd rather close it than admire it.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value">2,000+</div>
+            <div class="stat-label">Daily active users · BB Terminal</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">20×</div>
+            <div class="stat-label">Content output via LLM pipeline</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">322ms</div>
+            <div class="stat-label">Production load time</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">3.9</div>
+            <div class="stat-label">GPA · ICT, Cyber Defense focus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════ CONTACT ════════╗ -->
+  <section class="contact-section" id="contacts">
+    <div class="container">
+      <div class="contact-wrap">
+        <div>
+          <h2 class="contact-headline">Have an idea? <span class="yellow">Let's ship it.</span></h2>
+          <p class="contact-blurb">Currently open to full stack engineering, founding engineer, and product engineering roles where the work is hands-on, the bar is high, and the loop from idea to live product is short.</p>
+          <a href="mailto:ornelasedward@rocketmail.com" class="btn">Email me
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M3 7l2-2h14l2 2"/></svg>
+          </a>
+        </div>
+
+        <div class="contact-list">
+          <a href="mailto:ornelasedward@rocketmail.com" class="contact-row">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">ornelasedward@rocketmail.com</span>
+          </a>
+          <a href="https://github.com/ornelasedward" target="_blank" rel="noopener" class="contact-row">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/ornelasedward</span>
+          </a>
+          <a href="https://linkedin.com/in/edward-ornelas" target="_blank" rel="noopener" class="contact-row">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">linkedin.com/in/edward-ornelas</span>
+          </a>
+          <div class="contact-row">
+            <span class="contact-label">Based In</span>
+            <span class="contact-value">Austin, TX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════ FOOTER ════════╗ -->
+  <footer>
+    <div>© 2026 Edward Ornelas <span class="yellow">·</span> Built end to end.</div>
+    <div>Made in Austin <span class="yellow">·</span> Shipped with Claude</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

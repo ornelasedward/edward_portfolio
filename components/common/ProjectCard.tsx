@@ -38,13 +38,15 @@ const ProjectCard: React.FC<Props> = ({
           <p className="">{description}</p>
         </div>
         <div className="flex items-center gap-4">
-          <Button
-            link={liveLink}
-            target="_blank"
-            name="Live"
-            type="primary"
-            icon="<~>"
-          />
+          {liveLink ? (
+            <Button
+              link={liveLink}
+              target="_blank"
+              name="Live"
+              type="primary"
+              icon="<~>"
+            />
+          ) : null}
           {github && (
             <Button
               link={github}

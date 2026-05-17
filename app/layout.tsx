@@ -11,21 +11,37 @@ import Script from 'next/script';
 
 const fira_code = Fira_Code({ subsets: ['latin'] });
 
+export const metadata: Metadata = {
+  title: "Edward's portfolio",
+  description:
+    'AI-native full stack engineer and founding builder shipping complete products end to end.',
+  openGraph: {
+    title: "Edward's portfolio",
+    description:
+      'AI-native full stack engineer and founding builder shipping complete products end to end.',
+    images: ['/images/header-img.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Edward's portfolio",
+    description:
+      'AI-native full stack engineer and founding builder shipping complete products end to end.',
+    images: ['/images/header-img.png'],
+  },
+};
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <head>
-        <title>Edward&apos;s portfolio</title>
-        {/* Google tag (gtag.js) */}
+      <body className={fira_code.className}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TWVMHL49JM"
           strategy="afterInteractive"
-          async
         />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
@@ -35,45 +51,44 @@ export default function RootLayout({
             gtag('config', 'G-TWVMHL49JM');
           `}
         </Script>
-        <meta name="description" content="Full stack engineer and technical leader" />
-        {/* Open Graph */}
-        <meta property="og:title" content="Edward&apos;s portfolio" />
-        <meta property="og:description" content="Full stack engineer and technical leader" />
-        <meta property="og:image" content="/images/header-img.png" />
-        <meta property="og:type" content="website" />
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Edward&apos;s portfolio" />
-        <meta name="twitter:description" content="Full stack engineer and technical leader" />
-        <meta name="twitter:image" content="/images/header-img.png" />
-      </head>
-      <body className={fira_code.className}>
-        {/* Navbar */}
         <div className="xl:block hidden relative">
-  <div className="absolute z-[999] left-1 2xl:left-[1%] top-0">
-    <div className="grid place-items-center">
-      <div className="w-[1px] h-[191px] bg-gray"></div>
-      <ul className="space-y-3">
-        {/* GitHub Link */}
-        <Link href="https://github.com/ornelasedward" className="flex">
-          <Image src={github} alt="github" />
-        </Link>
-        {/* LinkedIn Link */}
-        <Link href="https://www.linkedin.com/in/edward-ornelas-681b52131/" className="flex">
-          <Image src={linkedin} alt="linkedin" />
-        </Link>
-        {/* Twitter Link */}
-        <Link href="https://x.com/_edwardornelas" className="flex invert items-center justify-center">
-          <Image src={twitterX} alt="twitter" />
-        </Link>
-        {/* YouTube Link */}
-        <Link href="https://www.youtube.com/edward-ornelas" className="flex">
-          <Image src={youtube} alt="youtube" />
-        </Link>
-      </ul>
-    </div>
-  </div>
-</div>
+          <div className="absolute z-[999] left-1 2xl:left-[1%] top-0">
+            <div className="grid place-items-center">
+              <div className="w-[1px] h-[191px] bg-gray"></div>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="https://github.com/ornelasedward" className="flex">
+                    <Image src={github} alt="github" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/in/edward-ornelas-681b52131/"
+                    className="flex"
+                  >
+                    <Image src={linkedin} alt="linkedin" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://x.com/_edwardornelas"
+                    className="flex invert items-center justify-center"
+                  >
+                    <Image src={twitterX} alt="twitter" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.youtube.com/edward-ornelas"
+                    className="flex"
+                  >
+                    <Image src={youtube} alt="youtube" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <Navbar />
         <MobileNavbar />
         <main className=" relative">{children}</main>

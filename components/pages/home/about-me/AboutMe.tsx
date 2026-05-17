@@ -1,57 +1,53 @@
-import { about_me_home_image, dots, dots2, topRefL, topRegR } from "@/assets";
 import Container from "@/components/Container";
 import Button from "@/components/common/Button";
-import Image from "next/image";
+import { aboutContent } from "@/constant";
 import React from "react";
 
 const AboutMe = () => {
   return (
-    <section className=" relative">
-      <Container classes="relative z-30">
-        <div>
-          <div className=" flex items-center w-full">
-            <h2>
-              <span className=" text-primary">#</span>about-me
-            </h2>
-            <div className=" h-[1px] w-[30%] sm:w-[70px] md:w-[40%] bg-primary"></div>
+    <section id="about-me" className="border-b border-t border-gray py-16 lg:py-24">
+      <Container>
+        <p className="mb-10 text-sm uppercase tracking-[0.2em] text-gray lg:mb-14">
+          {aboutContent.label}
+        </p>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="space-y-6">
+            {aboutContent.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className="text-base leading-relaxed text-gray lg:text-lg lg:leading-8"
+              >
+                {paragraph}
+              </p>
+            ))}
+            <div className="pt-4">
+              <Button link="/about-me" name="Read more ->" type="primary" />
+            </div>
           </div>
-        </div>
-        <div className=" w-full flex flex-col-reverse lg:items-center  lg:flex-row gap-10">
-          <div className=" basis-1/2  space-y-4 ">
-            <div className="space-y-3 pb-4">
-              <p>
-                Based in Austin, Texas, I&apos;m a full-stack engineer and technical leader specializing in crypto, healthcare, and edtech platforms. My journey began at the intersection of content strategy and emerging tech, but quickly evolved as I led engineering teams and launched high-impact products for fast-growth startups and organizations.
-              </p>
-              <p>
-                I&apos;ve architected and scaled platforms like BB Terminal (crypto analytics suite), Telos Health (modular healthcare platform), and BB Academy (education CMS), driving projects from initial concept to production deployment. I&apos;m passionate about building robust systems end-to-end, leading teams, and applying the latest in cloud, security, and modern frameworks to deliver user-driven experiences.
-              </p>
-              <p>
-                I hold a Bachelor&apos;s in ICT with a concentration in cybersecurity, and I consistently bring technical depth, product vision, and a bias for action to every project—always pushing for best practices, strong security, and future-ready solutions.
-              </p>
-            </div>
-            <Button link="/about-me" name="Read more ->" type="primary" />
-          </div>
-          <div className=" relative ">
-            <Image
-              className=" relative z-20 grayscale"
-              src={about_me_home_image}
-              alt="Edward Ornelas"
-            />
-            <div className=" absolute left-[20%] top-9">
-              <Image alt="dots" src={dots} />
-            </div>
-            <div className=" absolute left-[75%] top-[55%]">
-              <Image alt="dots" src={dots} />
-            </div>
+          <div>
+            {aboutContent.detailSections.map((section, sectionIndex) => (
+              <div
+                key={sectionIndex}
+                className="space-y-5 border-t border-gray py-6 first:border-t-0 first:pt-0 lg:first:border-t lg:first:pt-6"
+              >
+                {section.map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-8"
+                  >
+                    <span className="shrink-0 text-xs uppercase tracking-[0.15em] text-gray">
+                      {row.label}
+                    </span>
+                    <span className="text-sm text-white sm:text-right lg:text-base">
+                      {row.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </Container>
-      <div className=" -z-10 absolute  right-0 top-1/2">
-        <Image src={dots2} alt="dots2" />
-      </div>
-      <div className=" -z-10 absolute  left-0 top-[20%]">
-        <Image src={topRefL} alt="dots2" />
-      </div>
     </section>
   );
 };

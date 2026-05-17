@@ -2,7 +2,6 @@ import React from 'react';
 
 import Image from 'next/image';
 import { a1, heroImage } from '@/assets';
-import { github, youtube } from '@/assets/icons';
 import Button from '@/components/common/Button';
 import Container from '@/components/Container';
 import { FaGithub, FaYoutube } from 'react-icons/fa';
@@ -10,60 +9,54 @@ import { MdEmail } from 'react-icons/md';
 
 const Hero = () => {
   return (
-    <div>
+    <div className="py-10 sm:py-14 lg:py-20">
       <Container>
-        <div className=" overflow-hidden flex flex-col gap-3 lg:gap-0 lg:flex-row">
-          <div className=" basis-[60%] ">
-            <div className="space-y-3 lg:pt-[94px] max-w-[700px]">
-              <h2>
-              Building  <span className=" text-primary">Next-Gen Platforms</span> From First Commit to Scaled Launch
-              </h2>
-              <p>
-              Full stack engineer and technical leader, driving products across crypto, healthcare, and edtech—specializing in scalable architecture, team leadership, and seamless user experiences.
-              </p>
-              <div className="pt-6 flex flex-wrap gap-3">
-                <Button link="contact" name="Contact me" icon={<MdEmail size={20} />} />
-                <Button 
-                  link="https://github.com/ornelasedward" 
-                  name="Github" 
-                  icon={<FaGithub size={20} />}
-                  target="_blank"
-                />
-                <Button 
-                  link="https://www.youtube.com/@edward-ornelas" 
-                  name="Youtube" 
-                  icon={<FaYoutube size={20} />}
-                  target="_blank"
-                />
-              </div>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-10 xl:gap-12">
+          <div className="min-w-0 space-y-6 sm:space-y-8">
+            <h1 className="text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.75rem] lg:text-[2.75rem] xl:text-[3rem]">
+              <span className="block lg:whitespace-nowrap">Give me the idea and I&apos;ll</span>
+              <span className="block lg:whitespace-nowrap">engineer a product that</span>
+              <span className="block text-primary lg:whitespace-nowrap">
+                ships fast and holds up.
+              </span>
+            </h1>
+            <p className="text-base leading-relaxed text-gray sm:text-lg sm:leading-8">
+              AI-native full stack engineer and founding builder shipping complete products end to
+              end. Backend, frontend, AI systems, security, and infrastructure—built with modern
+              tooling and shipped live in production from day one.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button link="contact" name="Contact me" icon={<MdEmail size={20} />} />
+              <Button
+                link="https://github.com/ornelasedward"
+                name="Github"
+                icon={<FaGithub size={20} />}
+                target="_blank"
+              />
+              <Button
+                link="https://www.youtube.com/@edward-ornelas"
+                name="Youtube"
+                icon={<FaYoutube size={20} />}
+                target="_blank"
+              />
             </div>
           </div>
-          <div className=" basis-[40%] relative">
-            <div>
+          <div className="relative min-w-0 w-full lg:max-w-[95%] lg:justify-self-end lg:self-stretch lg:min-h-0 lg:overflow-visible">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -left-14 top-[120px] bottom-0 right-0 z-0 hidden overflow-hidden lg:block xl:-left-16"
+            >
+              <Image src={a1} alt="" className="h-auto w-auto max-w-none" />
+            </div>
+            <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] lg:aspect-auto lg:h-full lg:min-h-0">
               <Image
-                className="w-full h-full object-cover grayscale"
+                fill
                 src={heroImage}
                 alt="hero_image"
+                className="z-10 object-cover object-top grayscale"
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                priority
               />
-              <div className=" border border-gray flex space-x-2 items-center p-3">
-                <div>
-                  <div className=" w-4 h-4  bg-primary"></div>
-                </div>
-                <p className=" leading-5">
-                  Currently working on 
-                </p>
-                <a
-                    href="https://app.bbterminal.com/"
-                    className="text-primary font-semibold underline hover:text-primary transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    BB Terminal
-                  </a>
-              </div>
-            </div>
-            <div className=" hidden lg:block absolute top-[120px] left-[-57px]">
-              <Image src={a1} alt="a" />
             </div>
           </div>
         </div>

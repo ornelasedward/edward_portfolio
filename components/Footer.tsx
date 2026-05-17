@@ -9,7 +9,7 @@ import Logo from './common/Logo';
 
 const Footer = () => {
   return (
-    <footer className=" mt-10 lg:mt-16 border-t border-gray">
+    <footer className="mt-10 border-t border-gray lg:mt-16">
       <Container classes="">
         <div className=" space-y-3 flex flex-col lg:flex-row items-center lg:items-center lg:justify-between">
           <div>
@@ -21,7 +21,7 @@ const Footer = () => {
               <p className=" hidden lg:block">ornelasedward@rocketmail.com</p>
             </div>
             <h6 className=" text-center lg:text-left text-base text-white ">
-            full stack engineer and technical leader,
+            Full Stack Engineer · Founding Builder
             </h6>
             <p className=" text-center lg:hidden">
               ornelasedward@rocketmail.com

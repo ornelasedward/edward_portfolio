@@ -34,24 +34,229 @@ const navLinksData = [
 
 // project
 
+const credentialsData = [
+  {
+    label: "Role",
+    value: "Full Stack Engineer · Founding Builder",
+  },
+  {
+    label: "Built in",
+    value: ["Healthcare · Fintech · Crypto ·", "Creator economy"],
+  },
+  {
+    label: "Favorite AI stack",
+    value: "Cursor · Codex · Claude",
+  },
+  {
+    label: "Education",
+    value: "B.S. Information & Communications Technology · Cyber Defense",
+  },
+];
+
+const aboutContent = {
+  label: "01 — about-me",
+  paragraphs: [
+    "Based in Austin, I build products end-to-end across AI, crypto, healthcare, and education. Over the last few years I've shipped trading platforms, analytics systems, internal tools, CMS platforms, and automations—working directly with founders and owning implementation from idea to launch.",
+    "I like ambiguity, shipping fast, and turning rough concepts into working products. Most of my recent work has involved AI-assisted development, automation systems, and taking products from 0→1.",
+    "I hold a B.S. in Information and Communications Technology with a focus in Cyber Defense, and I bring a bias for shipping, strong ownership, and building systems that people actually use.",
+  ],
+  detailSections: [
+    [
+      { label: "Now", value: "Full Stack Engineer · Founding Builder" },
+      { label: "Since", value: "Shipping products independently" },
+      { label: "Based in", value: "Austin, Texas" },
+    ],
+    [
+      { label: "Built in", value: "Healthcare · Fintech · Crypto · Creator economy" },
+      { label: "Stack", value: "Cursor · Codex · Claude · Next.js · .NET" },
+    ],
+    [
+      { label: "Edu", value: "B.S. Information & Communications Technology · Cyber Defense" },
+      { label: "Also", value: "AI-native workflows · Live in production" },
+    ],
+  ],
+};
+
+const contactContent = {
+  headline: {
+    before: "Let's build ",
+    accent: "software",
+    after: " that actually ships.",
+  },
+  links: [
+    {
+      label: "Email",
+      value: "ornelasedward@rocketmail.com",
+      href: "mailto:ornelasedward@rocketmail.com",
+    },
+    {
+      label: "Phone",
+      value: "575-513-6238",
+      href: "tel:+15755136238",
+    },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/edward-ornelas",
+      href: "https://www.linkedin.com/in/edward-ornelas-681b52131/",
+    },
+  ],
+};
+
+const techStackContent = {
+  tag: "// stack",
+  title: "What I build with",
+  subtitle: "The tools I reach for to take products from a blank repo to live in production.",
+  categories: [
+    {
+      icon: "{ }",
+      label: "Languages",
+      items: ["Python", "C#", "TypeScript", "JavaScript", "SQL"],
+    },
+    {
+      icon: "</>",
+      label: "Frontend",
+      items: ["React", "Next.js", "TypeScript", "Tailwind", "HTML / CSS"],
+    },
+    {
+      icon: "⟨⟩",
+      label: "Backend",
+      items: [".NET", "Node.js", "Python", "REST APIs", "Microservices"],
+    },
+    {
+      icon: "DB",
+      label: "Data",
+      items: ["PostgreSQL", "Redis", "Firebase", "BigQuery"],
+    },
+    {
+      icon: "☁",
+      label: "Cloud & Infra",
+      items: ["Azure", "AWS", "GCP", "Docker", "Linux", "CI/CD"],
+    },
+    {
+      icon: "🔒",
+      label: "Security",
+      items: [
+        "Auth systems",
+        "Encryption",
+        "Cloudflare WAF",
+        "Rate limiting",
+        "Sentry",
+        "Bot detection",
+      ],
+    },
+  ],
+};
+
+const aiToolkitContent = {
+  tag: "// ai-toolkit",
+  title: "AI-native toolkit",
+  subtitle: "The tools that shorten the distance between idea and shipped product.",
+  tools: [
+    {
+      num: "01",
+      name: "Cursor",
+      role: "Primary IDE",
+      description:
+        "Where the code actually gets written. Pair-programming with frontier models in the loop turns half-day tasks into half-hour tasks.",
+    },
+    {
+      num: "02",
+      name: "Codex",
+      role: "Code generation",
+      description:
+        "Reach-for-it tool for scaffolding, refactors, and turning a paragraph of intent into working code in a single pass.",
+    },
+    {
+      num: "03",
+      name: "Claude",
+      role: "Reasoning & product thinking",
+      description:
+        "Architecture decisions, gnarly debugging, and the kind of long-context reasoning that turns rough specs into clean systems.",
+    },
+    {
+      num: "04",
+      name: "Anthropic API",
+      role: "In-product AI",
+      description:
+        "The layer I ship AI features on. RAG systems, agentic workflows, and LLM pipelines integrated directly into production products.",
+    },
+  ],
+};
+
+const shippedProjects = [
+  {
+    name: "BB TraderX",
+    tags: ["AI Trading", "Next.js", ".NET", "Agentic Workflows"],
+    paragraphs: [
+      "AI-powered trading automation platform built end-to-end with strategy generation, Hyperliquid integrations, and agentic development workflows.",
+      "Shipped to 205+ users in the first 1.5 weeks with 120+ strategies published and 140+ strategy followers.",
+    ],
+    stats: [
+      { value: "205+", label: "Users in 1.5 weeks" },
+      { value: "120+", label: "Strategies published" },
+    ],
+    features_image: BB1,
+    liveLink: "https://www.bbtraderx.com/",
+    linkSublabel: "Visit the platform",
+  },
+  {
+    name: "BB Terminal",
+    tags: ["Crypto Analytics", "Next.js", "PostgreSQL", "Real-time Data"],
+    paragraphs: [
+      "All-in-one crypto intelligence platform tracking 50+ assets with pro trading indicators, portfolio tools, and real-time market data.",
+      "Scaled to 275k+ monthly views and $150k/mo in business impact after shipping from zero.",
+    ],
+    stats: [
+      { value: "275k+", label: "Monthly views" },
+      { value: "$150k", label: "Mo business impact" },
+    ],
+    features_image: terminalImage2,
+    liveLink: "https://app.bbterminal.com/home",
+    linkSublabel: "Visit the platform",
+  },
+  {
+    name: "Telos Health",
+    tags: ["Healthcare", "HIPAA", "Angular", "NestJS"],
+    paragraphs: [
+      "Modular healthcare platform for clinicians, admins, and patients—HIPAA-compliant infrastructure with responsive frontends and secure APIs.",
+      "Shipped across 3 portals serving 20,000+ patients for home health agencies.",
+    ],
+    stats: [
+      { value: "20,000+", label: "Patients served" },
+      { value: "3", label: "Portals shipped" },
+    ],
+    features_image: telo,
+    liveLink: "https://www.linkedin.com/company/telos-health-solutions/posts/?feedView=images",
+    linkSublabel: "View company",
+  },
+];
+
 const projectsData = {
   complete: [
+    {
+      name: "BB TraderX",
+      tools: ["Next.js", ".NET", "TypeScript", "Hyperliquid APIs", "AI Agents"],
+      features_image: BB1,
+      description:
+        "AI-powered trading automation platform—205+ users in the first 1.5 weeks, 120+ strategies published, 140+ strategy followers. Built end-to-end with agentic development workflows, strategy generation, and Hyperliquid integrations.",
+      liveLink: "https://www.bbtraderx.com/",
+      github: "",
+    },
     {
       name: "BB Terminal",
       tools: ["Next.js", "React", "TypeScript", "Firebase", "PostgreSQL", "Docker", "Azure"],
       features_image: terminalImage2,
       description:
-        "All-in-one crypto analytics platform tracking 50+ assets with 20+ pro trading indicators, portfolio tools, and real-time market intelligence. I led a team of 6 as the Lead Software Engineer, architecting the entire platform and scaling it from 275,000+ monthly views and $150K/month in revenue.",
+        "Crypto intelligence platform tracking 50+ assets with pro trading indicators, portfolio tools, and real-time market data. Shipped and scaled to 275k+ monthly views and $150k/mo business impact.",
       liveLink: "https://app.bbterminal.com/home",
       github: "",
     },
-  
     {
       name: "Telos Health",
       tools: ["Angular", "NestJS", "PostgreSQL", "SCSS", "Docker", "Directus"],
       features_image: telo,
       description:
-        "Modular healthcare platform supporting clinicians, admins, and patients for home health agencies with HIPAA-compliant infrastructure. I built responsive frontend components and secure backend APIs, helping launch across 3 portals with 20,000+ patients and supporting investor demos through performance-optimized landing pages.",
+        "Modular healthcare platform for clinicians, admins, and patients—HIPAA-compliant infra, responsive frontends, and secure APIs. Shipped across 3 portals serving 20,000+ patients.",
       liveLink: "https://www.linkedin.com/company/telos-health-solutions/posts/?feedView=images",
       github: "",
     },
@@ -60,7 +265,7 @@ const projectsData = {
       tools: ["React", "Next.js", "Node.js", "SanityCMS", "Stripe", "Vimeo", "Google Cloud Functions", "Firebase"],
       features_image: bbAcademy,
       description:
-        "Proprietary course and content platform for BecauseBitcoin, providing a seamless CMS-like experience for creating, selling, and managing educational content. I built the end-to-end academy experience, including checkout flows and modular course management, driving new revenue streams and enabling self-serve course publishing for the team.",
+        "Course platform + CMS that created a new revenue stream—checkout, modular course management, and self-serve publishing built end-to-end with Stripe and Sanity.",
       liveLink: "https://becausebitcoin.com/academy",
       github: "",
 
@@ -131,4 +336,13 @@ const projectsData = {
   ],
 };
 
-export { navLinksData, projectsData };
+export {
+  navLinksData,
+  credentialsData,
+  aboutContent,
+  contactContent,
+  shippedProjects,
+  projectsData,
+  techStackContent,
+  aiToolkitContent,
+};

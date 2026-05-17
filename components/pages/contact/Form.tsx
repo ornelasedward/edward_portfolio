@@ -1,10 +1,8 @@
 'use client';
 
-import Button from '@/components/common/Button';
 import InputTextField from '@/components/common/InputTextFiled';
 
 import React, { useState, FormEvent, ChangeEvent } from 'react';
-import { Input, Textarea } from '@material-tailwind/react';
 
 const Inquire = () => {
   const [username, setUsername] = useState('');
@@ -42,21 +40,22 @@ const Inquire = () => {
       }
 
       setSubmitStatus('success');
-      // Clear form on success
       setUsername('');
       setEmail('');
       setTitle('');
       setMessage('');
-      
-      // Reset success message after 5 seconds
+
       setTimeout(() => setSubmitStatus('idle'), 5000);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setSubmitStatus('error');
-      setErrorMessage(error.message || 'Something went wrong. Please try again.');
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Something went wrong. Please try again.'
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className=" lg:flex  justify-between">
       <h2 className=" basis-[45%]">
@@ -65,44 +64,38 @@ const Inquire = () => {
       <div className="s basis-[55%]">
         <form className=" pt-5 grid gap-3 lg:gap-6" onSubmit={handleSubmit}>
           <div className=" grid gap-3 lg:gap-6 grid-cols-2">
-            <Input
-              className=" border  focus:ring-0   border-gray "
-              id="name"
+            <InputTextField
               label="Name"
-              color="teal"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+                setUsername(e.target.value)
+              }
             />
-            <Input
-              className=" border  focus:ring-0   border-gray "
-              color="teal"
-              id="email"
+            <InputTextField
               label="Email"
+              type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+                setEmail(e.target.value)
+              }
             />
           </div>
-          <div className="grid">
-            <Input
-              className=" border  focus:ring-0   border-gray "
-              color="teal"
-              id="title"
-              label="Subject"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="grid">
-            <Textarea
-              color="teal"
-              className=" border  focus:ring-0   border-gray "
-              name="message"
-              label="Message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </div>
-          {/* Status Messages */}
+          <InputTextField
+            label="Subject"
+            value={title}
+            onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+              setTitle(e.target.value)
+            }
+          />
+          <InputTextField
+            label="Message"
+            value={message}
+            onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+              setMessage(e.target.value)
+            }
+            multiline
+            rows={5}
+          />
           {submitStatus === 'success' && (
             <div className="p-3 bg-green-900/20 border border-green-500 text-green-400 rounded">
               Message sent successfully! I&apos;ll get back to you soon.
@@ -113,7 +106,7 @@ const Inquire = () => {
               {errorMessage}
             </div>
           )}
-          
+
           <div className="flex justify-end">
             <button
               type="submit"

@@ -1,48 +1,41 @@
-import { discord, email } from '@/assets/icons';
-import Container from '@/components/Container';
-import Button from '@/components/common/Button';
-import Image from 'next/image';
-import React from 'react';
+import Container from "@/components/Container";
+import Button from "@/components/common/Button";
+import { contactContent } from "@/constant";
+import Link from "next/link";
+import React from "react";
 
 const Contacts = () => {
+  const { headline, links } = contactContent;
+
   return (
-    <section className=" pt-10 lg:pt-16 ">
+    <section id="contacts" className="py-16 lg:py-24">
       <Container>
         <div>
-          <div className=" flex   md:w-[70%]    items-center gap-2">
-            <h2>
-              <span className=" text-primary">#</span>contacts
-            </h2>
-            <div className=" h-[1px] w-[40px] sm:w-[70px] md:w-[40%] bg-primary"></div>
-          </div>
-          <div className=" w-full gap-6 xl:w-[80%] flex flex-col lg:flex-row  lg:items-center lg:justify-between">
-            <div className=" space-y-8 lg:max-w-[506px]">
-              <p className=" pt-6">
-                I&apos;m open to roles in software engineering, technical leadership, or product-focused teams at innovative companies. For opportunities or collaborations, feel free to reach out directly.
+          <h2 className="max-w-4xl text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem]">
+            {headline.before}
+            <span className="text-primary">{headline.accent}</span>
+            {headline.after}
+          </h2>
+        </div>
+        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-12">
+          {links.map((link) => (
+            <div key={link.label}>
+              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-gray">
+                {link.label}
               </p>
-              <div className=" hidden lg:block">
-                <Button name="Contact me ->" link="/contact" />
-              </div>
+              <Link
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="text-base text-white underline decoration-gray underline-offset-4 transition-colors hover:text-primary hover:decoration-primary lg:text-lg"
+              >
+                {link.value}
+              </Link>
             </div>
-            <div>
-              <div className="  border border-gray p-2 space-y-3">
-                <h6>Message me here</h6>
-                <ul className="s space-y-1">
-                  <li className="s text-base flex text-gray items-center gap-2">
-                    <Image src={discord} alt="email" />
-                    575-513-6238
-                  </li>
-                  <li className="s text-base flex text-gray items-center gap-2">
-                    <Image src={email} alt="emasil" />
-                    ornelasedward@rocketmail.com
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="  lg:hidden">
-              <Button name="Contact me ->" link="/contact" />
-            </div>
-          </div>
+          ))}
+        </div>
+        <div className="mt-10 lg:mt-14">
+          <Button name="Contact me ->" link="/contact" type="primary" />
         </div>
       </Container>
     </section>

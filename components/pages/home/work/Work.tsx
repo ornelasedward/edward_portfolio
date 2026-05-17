@@ -1,48 +1,32 @@
-"use client";
-
-import React, { useState } from "react";
-import Container from "../../../Container";
-
-import { projectsData } from "@/constant";
-import Button from "@/components/common/Button";
-import ProjectCard from "@/components/common/ProjectCard";
+import Container from "@/components/Container";
+import { shippedProjects } from "@/constant";
 import Image from "next/image";
-import { dots2, dots3, topRegR } from "@/assets";
+import { dots3, topRegR } from "@/assets";
+import ShippedProject from "./ShippedProject";
 
 const Work = () => {
   return (
-    <section id="work" className=" relative">
+    <section id="things-i-shipped" className="relative w-full border-b border-gray pb-16 lg:pb-24">
       <Container>
-        <div className=" py-5 flex w-full  justify-between items-center">
-          <div className=" flex   md:w-[70%]    items-center gap-2">
-            <h2>
-              <span className=" text-primary">#</span>projects
-            </h2>
-            <div className=" h-[1px] w-[40px] sm:w-[70px] md:w-[40%] bg-primary md:block hidden"></div>
-          </div>
-          {/* <div>
-            <Button name="View all" type="outline" icon="~~>" link="projects" />
-          </div> */}
+        <div className="flex w-full items-center gap-4 py-6 lg:gap-6 lg:py-10">
+          <h2 className="shrink-0 text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem]">
+            <span className="text-primary">#</span>
+            <span className="text-white">things-i&apos;ve-</span>
+            <span className="text-primary">shipped</span>
+          </h2>
+          <div className="hidden h-[1px] flex-1 bg-primary md:block" />
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projectsData.complete.slice(0, 3).map((data) => (
-            <ProjectCard
-              key={data.name}
-              name={data.name}
-              description={data.description}
-              featureImage={data.features_image}
-              liveLink={data.liveLink}
-              github={data.github}
-              tools={data.tools}
-            />
+        <div>
+          {shippedProjects.map((project, index) => (
+            <ShippedProject key={project.name} index={index + 1} project={project} />
           ))}
         </div>
       </Container>
-      <div className=" absolute  left-0 top-[12%]">
-        <Image src={dots3} alt="dots2" />
+      <div className="pointer-events-none absolute left-0 top-[12%]">
+        <Image src={dots3} alt="" />
       </div>
-      <div className=" absolute  right-0 top-[45%]">
-        <Image src={topRegR} alt="dots2" />
+      <div className="pointer-events-none absolute right-0 top-[45%]">
+        <Image src={topRegR} alt="" />
       </div>
     </section>
   );
