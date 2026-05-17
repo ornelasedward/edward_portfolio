@@ -14,10 +14,18 @@ const Hero = () => {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-16 xl:gap-20">
           <div className="min-w-0 space-y-6 sm:space-y-8">
             <h1 className="text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.75rem] lg:text-[2.75rem] xl:text-[3rem]">
-              <span className="block lg:whitespace-nowrap">Give me the idea and I&apos;ll</span>
-              <span className="block lg:whitespace-nowrap">engineer a product that</span>
-              <span className="block text-primary lg:whitespace-nowrap">
-                ships fast and holds up.
+              <span className="lg:hidden">
+                <span className="block">I build and ship</span>
+                <span className="block">like a startup,</span>
+                <span className="block text-primary">but scale like</span>
+                <span className="block text-primary">an enterprise.</span>
+              </span>
+              <span className="hidden lg:contents">
+                <span className="block whitespace-nowrap">I build and ship like</span>
+                <span className="block whitespace-nowrap">a startup, but</span>
+                <span className="block whitespace-nowrap text-primary">
+                  scale like an enterprise.
+                </span>
               </span>
             </h1>
             <p className="text-base leading-relaxed text-gray sm:text-lg sm:leading-8">
