@@ -5,7 +5,6 @@ import Hero from '@/components/pages/home/hero/Hero';
 import AboutMe from '@/components/pages/home/about-me/AboutMe';
 import Contacts from '@/components/pages/home/contacts/Contacts';
 import TechStack from '@/components/pages/home/stack/TechStack';
-import AIToolkit from '@/components/pages/home/ai-toolkit/AIToolkit';
 
 const pageContentClass = `mx-auto w-full min-w-0 ${PAGE_MAX_WIDTH}`;
 
@@ -21,7 +20,6 @@ export default function Home() {
       <Work />
       <div className={`${pageContentClass} space-y-10 lg:space-y-16`}>
         <TechStack />
-        <AIToolkit />
         <AboutMe />
         <Contacts />
       </div>

@@ -133,16 +133,9 @@ const techStackContent = {
       items: ["Azure", "AWS", "GCP", "Docker", "Linux", "CI/CD"],
     },
     {
-      icon: "🔒",
-      label: "Security",
-      items: [
-        "Auth systems",
-        "Encryption",
-        "Cloudflare WAF",
-        "Rate limiting",
-        "Sentry",
-        "Bot detection",
-      ],
+      icon: "AI",
+      label: "AI toolkit",
+      items: ["Cursor", "Codex", "Claude", "Anthropic API"],
     },
   ],
 };
