@@ -8,7 +8,7 @@ import {
   logoForge,
   TwitchClone,
   terminalImage,
-  terminalImage2,
+  terminal,
   telo,
   bbAcademy,
 } from "@/assets";
@@ -210,8 +210,8 @@ const shippedProjects = [
       { value: "275k+", label: "Monthly views" },
       { value: "$150k", label: "Mo business impact" },
     ],
-    features_image: terminalImage2,
-    liveLink: "https://app.bbterminal.com/home",
+    features_image: terminal,
+    liveLink: "https://app.bbterminal.com/degen",
     linkSublabel: "Visit the platform",
   },
   {
@@ -245,10 +245,10 @@ const projectsData = {
     {
       name: "BB Terminal",
       tools: ["Next.js", "React", "TypeScript", "Firebase", "PostgreSQL", "Docker", "Azure"],
-      features_image: terminalImage2,
+      features_image: terminal,
       description:
         "Crypto intelligence platform tracking 50+ assets with pro trading indicators, portfolio tools, and real-time market data. Shipped and scaled to 275k+ monthly views and $150k/mo business impact.",
-      liveLink: "https://app.bbterminal.com/home",
+      liveLink: "https://app.bbterminal.com/degen",
       github: "",
     },
     {

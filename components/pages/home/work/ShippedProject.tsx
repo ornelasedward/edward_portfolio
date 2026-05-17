@@ -50,7 +50,7 @@ const ShippedProject = ({ index, project }: Props) => {
             {project.stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-xl font-semibold text-white lg:text-2xl">{stat.value}</p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.15em] text-gray">
+                <p className="mt-1 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.15em] text-gray">
                   {stat.label}
                 </p>
               </div>
@@ -65,7 +65,7 @@ const ShippedProject = ({ index, project }: Props) => {
                 <p className="text-xl font-semibold text-primary transition-opacity group-hover:opacity-80 lg:text-2xl">
                   View →
                 </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.15em] text-gray">
+                <p className="mt-1 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.15em] text-gray">
                   {project.linkSublabel ?? "Visit project"}
                 </p>
               </Link>

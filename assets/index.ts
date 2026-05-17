@@ -2,6 +2,7 @@ import logo from "./images/logo.svg";
 import heroImage from "./images/hero.svg";
 import terminalImage from "./images/terminal_image.png";
 import terminalImage2 from "./images/terminal_image2.png";
+import terminal from "./images/terminal.png";
 import telo from "./images/telo.png";
 import bbAcademy from "./images/bb_academy.png";
 import a1 from "./images/assets1.svg";
@@ -30,6 +31,7 @@ export {
   logo,
   terminalImage,
   terminalImage2,
+  terminal,
   telo,
   bbAcademy,
   heroImage,

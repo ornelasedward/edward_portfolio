@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div id="hero" className="scroll-mt-28 pt-16 pb-10 sm:pt-20 sm:pb-12 lg:pt-28 lg:pb-14">
       <Container>
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-10 xl:gap-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-16 xl:gap-20">
           <div className="min-w-0 space-y-6 sm:space-y-8">
             <h1 className="text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.75rem] lg:text-[2.75rem] xl:text-[3rem]">
               <span className="block lg:whitespace-nowrap">Give me the idea and I&apos;ll</span>
