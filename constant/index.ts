@@ -115,7 +115,15 @@ const techStackContent = {
     {
       icon: "</>",
       label: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind", "HTML / CSS"],
+      items: [
+        "React",
+        "Next.js",
+        "SSR / SSG",
+        "Server Components",
+        "Server Actions",
+        "TypeScript",
+        "Tailwind",
+      ],
     },
     {
       icon: "⟨⟩",
@@ -125,12 +133,12 @@ const techStackContent = {
     {
       icon: "DB",
       label: "Data",
-      items: ["PostgreSQL", "Redis", "Firebase", "BigQuery"],
+      items: ["PostgreSQL", "Supabase", "Redis", "Firebase", "BigQuery"],
     },
     {
       icon: "☁",
       label: "Cloud & Infra",
-      items: ["Azure", "AWS", "GCP", "Docker", "Linux", "CI/CD"],
+      items: ["Azure", "AWS", "GCP", "Docker", "Linux", "CI/CD", "Edge functions", "Serverless"],
     },
     {
       icon: "AI",
