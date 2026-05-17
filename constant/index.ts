@@ -3,7 +3,7 @@ import {
   eliasPortfolio,
   kahot,
   protectX,
-  BB1,
+  traderx,
   BB2,
   logoForge,
   TwitchClone,
@@ -16,15 +16,15 @@ import {
 const navLinksData = [
   {
     label: "home",
-    href: "/",
+    href: "/#hero",
   },
   {
     label: "work",
-    href: "/projects",
+    href: "/#things-i-shipped",
   },
   {
     label: "about-me",
-    href: "/about-me",
+    href: "/#about-me",
   },
   {
     label: "contacts",
@@ -41,7 +41,7 @@ const credentialsData = [
   },
   {
     label: "Built in",
-    value: ["Healthcare · Fintech · Crypto ·", "Creator economy"],
+    value: "Healthcare · Fintech · Crypto ·\u00a0Creator\u00a0economy",
   },
   {
     label: "Favorite AI stack",
@@ -67,7 +67,7 @@ const aboutContent = {
       { label: "Based in", value: "Austin, Texas" },
     ],
     [
-      { label: "Built in", value: "Healthcare · Fintech · Crypto · Creator economy" },
+      { label: "Built in", value: "Healthcare · Fintech · Crypto ·\u00a0Creator\u00a0economy" },
       { label: "Stack", value: "Cursor · Codex · Claude · Next.js · .NET" },
     ],
     [
@@ -195,7 +195,7 @@ const shippedProjects = [
       { value: "205+", label: "Users in 1.5 weeks" },
       { value: "120+", label: "Strategies published" },
     ],
-    features_image: BB1,
+    features_image: traderx,
     liveLink: "https://www.bbtraderx.com/",
     linkSublabel: "Visit the platform",
   },
@@ -236,7 +236,7 @@ const projectsData = {
     {
       name: "BB TraderX",
       tools: ["Next.js", ".NET", "TypeScript", "Hyperliquid APIs", "AI Agents"],
-      features_image: BB1,
+      features_image: traderx,
       description:
         "AI-powered trading automation platform—205+ users in the first 1.5 weeks, 120+ strategies published, 140+ strategy followers. Built end-to-end with agentic development workflows, strategy generation, and Hyperliquid integrations.",
       liveLink: "https://www.bbtraderx.com/",

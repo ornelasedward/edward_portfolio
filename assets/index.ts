@@ -11,6 +11,7 @@ import protectX from "./images/projects/protectX.png";
 import kahot from "./images/projects/kahot.png";
 import botKontak from "./images/projects/bot kotnk.png";
 import BB1 from "./images/projects/1.png";
+import traderx from "./images/traderx.png";
 import BB2 from "./images/projects/2.png";
 import TwitchClone from "./images/projects/3.png";
 import eliasPortfolio from "./images/projects/EliasPort.png";
@@ -39,6 +40,7 @@ export {
   kahot,
   botKontak,
   BB1,
+  traderx,
   BB2,
   TwitchClone,
   eliasPortfolio,

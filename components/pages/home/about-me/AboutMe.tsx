@@ -5,7 +5,7 @@ import React from "react";
 
 const AboutMe = () => {
   return (
-    <section id="about-me" className="border-b border-t border-gray py-16 lg:py-24">
+    <section id="about-me" className="scroll-mt-28 border-b border-t border-gray py-16 lg:py-24">
       <Container>
         <p className="mb-10 text-sm uppercase tracking-[0.2em] text-gray lg:mb-14">
           {aboutContent.label}

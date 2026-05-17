@@ -6,34 +6,10 @@ import Image from 'next/image';
 import { logo } from '@/assets';
 import { navLinksData } from '@/constant';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
-// components/ActiveLink.js"
-
 import { RxCross2 } from 'react-icons/rx';
-import { usePathname } from 'next/navigation';
-
 import { useState } from 'react';
-import Menu from '../common/Menu';
 import Logo from '../common/Logo';
-// import { ChevronDownIcon } from '@heroicons/react/20/solid';
-interface ActiveNavProps {
-  href: any;
-  children: any;
-}
-
-const ActiveLink: React.FC<ActiveNavProps> = ({ href, children }) => {
-  const pathname = usePathname();
-  const isActive = pathname === href;
-  console.log(href, '/path');
-
-  return (
-    <Link href={href}>
-      <span className={` text-base ${isActive ? ' text-white ' : 'text-gray'}`}>
-        <span className=" text-primary">#</span>
-        {children}
-      </span>
-    </Link>
-  );
-};
+import NavLink from '../common/NavLink';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -42,49 +18,38 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  //const menuItems = [
-  //   { label: 'EN', path: '/' },
-  //   { label: 'SP', path: '/' },
-  //   { label: 'BD', path: '/' },
-  //   // Add more menu items here
-  // ];
   return (
     <Container>
-      <header className="  py-8  flex items-center justify-between">
+      <header className="flex items-center justify-between py-8">
         <div className="logo">
-          <Link href={'/'}>
+          <Link href="/#hero">
             <Logo width={21} height={20} />
           </Link>
         </div>
         <nav>
-          <button onClick={() => openNavbar()} className="  md:hidden">
+          <button onClick={() => openNavbar()} className="md:hidden">
             <HiOutlineMenuAlt2 size={30} />
           </button>
-          <ul className=" hidden md:flex items-center gap-5">
-            {navLinksData.map((link, key) => (
-              <li key={key}>
-                <ActiveLink href={link.href}>{link.label}</ActiveLink>
+          <ul className="hidden items-center gap-5 md:flex">
+            {navLinksData.map((link) => (
+              <li key={link.href}>
+                <NavLink href={link.href}>{link.label}</NavLink>
               </li>
             ))}
-            {/* <Menu menuItems={menuItems} /> */}
           </ul>
           <div
-            className={` md:hidden fixed  bg-primary-dark   mobile_navbar 2xl:px-0 px-4 pt-6 w-full h-full   ${
+            className={`mobile_navbar fixed h-full w-full bg-primary-dark px-4 pt-6 2xl:px-0 md:hidden ${
               isOpen ? 'right-0' : 'right-full'
-            }  z-50 top-0 `}
+            } top-0 z-50`}
           >
-            <div className=" flex  items-center justify-between">
+            <div className="flex items-center justify-between">
               <Image src={logo} alt="logo" />
-              <RxCross2
-                onClick={() => openNavbar()}
-                className="text-white "
-                size={36}
-              />
+              <RxCross2 onClick={() => openNavbar()} className="text-white" size={36} />
             </div>
-            <ul className="flex flex-col  pt-7 md:flex-row gap-6">
-              {navLinksData.map(link => (
+            <ul className="flex flex-col gap-6 pt-7 md:flex-row">
+              {navLinksData.map((link) => (
                 <li key={link.href} onClick={openNavbar}>
-                  <ActiveLink href={link.href}>{link.label}</ActiveLink>
+                  <NavLink href={link.href}>{link.label}</NavLink>
                 </li>
               ))}
             </ul>
