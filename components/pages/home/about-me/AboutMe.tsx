@@ -1,5 +1,4 @@
 import Container from "@/components/Container";
-import Button from "@/components/common/Button";
 import { aboutContent } from "@/constant";
 import React from "react";
 
@@ -20,9 +19,6 @@ const AboutMe = () => {
                 {paragraph}
               </p>
             ))}
-            <div className="pt-4">
-              <Button link="/about-me" name="Read more ->" type="primary" />
-            </div>
           </div>
           <div>
             {aboutContent.detailSections.map((section, sectionIndex) => (

@@ -23,7 +23,7 @@ const Hero = () => {
             <p className="text-base leading-relaxed text-gray sm:text-lg sm:leading-8">
               AI-native full stack engineer and founding builder shipping complete products end to
               end. Backend, frontend, AI systems, security, and infrastructure—built with modern
-              tooling and shipped live in production from day one.
+              tooling and shipped live in production from day&nbsp;one.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button link="contact" name="Contact me" icon={<MdEmail size={20} />} />

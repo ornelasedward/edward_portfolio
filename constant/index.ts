@@ -37,7 +37,7 @@ const navLinksData = [
 const credentialsData = [
   {
     label: "Role",
-    value: "Full Stack Engineer · Founding Builder",
+    value: "Full Stack Engineer ·\u00a0Founding\u00a0Builder",
   },
   {
     label: "Built in",
@@ -62,7 +62,7 @@ const aboutContent = {
   ],
   detailSections: [
     [
-      { label: "Now", value: "Full Stack Engineer · Founding Builder" },
+      { label: "Now", value: "Full Stack Engineer ·\u00a0Founding\u00a0Builder" },
       { label: "Since", value: "Shipping products independently" },
       { label: "Based in", value: "Austin, Texas" },
     ],
@@ -81,7 +81,7 @@ const contactContent = {
   headline: {
     before: "Let's build ",
     accent: "software",
-    after: " that actually ships.",
+    after: " that ships.",
   },
   links: [
     {
