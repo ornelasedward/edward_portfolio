@@ -77,6 +77,28 @@ const aboutContent = {
   ],
 };
 
+const dontHireMeContent = {
+  tag: "// fit",
+  dontHireTitle: "Don't hire me if…",
+  hireTitle: "Hire me if…",
+  dontHireItems: [
+    "you don't like someone with self agency",
+    "you don't want someone with the ability to think outside the box",
+    "you don't want to ship products",
+    "you prefer someone who moves slow",
+    "you don't want someone that takes software from ideas into execution",
+    "you don't want someone who has built products with real revenue and users",
+  ],
+  hireItems: [
+    "you value someone with self agency",
+    "you want someone with the ability to think outside the box",
+    "you want to ship products",
+    "you want someone who moves fast",
+    "you want someone that takes software from ideas into execution",
+    "you want someone who has built products with real revenue and users",
+  ],
+};
+
 const contactContent = {
   headline: {
     before: "Let's build ",
@@ -341,6 +363,7 @@ export {
   navLinksData,
   credentialsData,
   aboutContent,
+  dontHireMeContent,
   contactContent,
   shippedProjects,
   projectsData,

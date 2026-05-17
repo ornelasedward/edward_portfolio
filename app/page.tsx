@@ -3,6 +3,7 @@ import CredentialsBar from '@/components/pages/home/credentials/CredentialsBar';
 import Work from '@/components/pages/home/work/Work';
 import Hero from '@/components/pages/home/hero/Hero';
 import AboutMe from '@/components/pages/home/about-me/AboutMe';
+import DontHireMe from '@/components/pages/home/dont-hire-me/DontHireMe';
 import Contacts from '@/components/pages/home/contacts/Contacts';
 import TechStack from '@/components/pages/home/stack/TechStack';
 
@@ -21,6 +22,7 @@ export default function Home() {
       <div className={`${pageContentClass} space-y-10 lg:space-y-16`}>
         <TechStack />
         <AboutMe />
+        <DontHireMe />
         <Contacts />
       </div>
     </div>
