@@ -12,7 +12,7 @@ const pageContentClass = `mx-auto w-full min-w-0 ${PAGE_MAX_WIDTH}`;
 export default function Home() {
   return (
     <div className="space-y-10 lg:space-y-16">
-      <div className="flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-12 lg:gap-16">
         <div className={pageContentClass}>
           <Hero />
         </div>
