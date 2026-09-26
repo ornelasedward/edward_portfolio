@@ -1,17 +1,14 @@
 import React from 'react';
 
-export const PAGE_MAX_WIDTH = 'max-w-7xl';
-
 interface containerProps {
   children: React.ReactNode;
   classes?: string;
 }
 
-const Container: React.FC<containerProps> = ({ children, classes }) => {
+// The page is one framed column: black rules down both sides from md up.
+const Container: React.FC<containerProps> = ({ children, classes = '' }) => {
   return (
-    <div
-      className={`mx-auto w-full min-w-0 ${PAGE_MAX_WIDTH} max-[280px]:px-2 px-5 sm:px-8 lg:px-12 xl:px-16 ${classes} `}
-    >
+    <div className={`mx-auto w-full min-w-0 max-w-5xl border-line md:border-x ${classes}`}>
       {children}
     </div>
   );

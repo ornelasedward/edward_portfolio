@@ -57,13 +57,10 @@ const Inquire = () => {
   };
 
   return (
-    <div className=" lg:flex  justify-between">
-      <h2 className=" basis-[45%]">
-        <span className=" text-primary">#</span>inquiries
-      </h2>
-      <div className="s basis-[55%]">
-        <form className=" pt-5 grid gap-3 lg:gap-6" onSubmit={handleSubmit}>
-          <div className=" grid gap-3 lg:gap-6 grid-cols-2">
+    <div className="max-w-2xl">
+      <div>
+        <form className="grid gap-4" onSubmit={handleSubmit}>
+          <div className="grid gap-4 sm:grid-cols-2">
             <InputTextField
               label="Name"
               value={username}
@@ -97,23 +94,23 @@ const Inquire = () => {
             rows={5}
           />
           {submitStatus === 'success' && (
-            <div className="p-3 bg-green-900/20 border border-green-500 text-green-400 rounded">
-              Message sent successfully! I&apos;ll get back to you soon.
+            <div className="border border-line p-3 text-sm">
+              Message sent. I&apos;ll get back to you soon.
             </div>
           )}
           {submitStatus === 'error' && (
-            <div className="p-3 bg-red-900/20 border border-red-500 text-red-400 rounded">
+            <div className="border border-red-700 p-3 text-sm text-red-700">
               {errorMessage}
             </div>
           )}
 
-          <div className="flex justify-end">
+          <div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-transparent border hover:bg-primary hover:text-black font-bold border-primary text-white px-5 flex flex-wrap items-center py-1.5 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="border border-line bg-ink px-5 py-2 text-sm font-medium text-paper transition-colors hover:bg-paper hover:text-ink disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {isSubmitting ? 'Sending...' : 'Send'}
+              {isSubmitting ? 'Sending…' : 'Send message'}
             </button>
           </div>
         </form>

@@ -1,372 +1,300 @@
-import {
-  chertNode,
-  eliasPortfolio,
-  kahot,
-  protectX,
-  traderx,
-  BB2,
-  logoForge,
-  TwitchClone,
-  terminalImage,
-  terminal,
-  telo,
-  bbAcademy,
-} from "@/assets";
+import { bizscout, calvis, telo, terminal, traderx } from "@/assets";
+import type { StaticImageData } from "next/image";
 
-const navLinksData = [
-  {
-    label: "home",
-    href: "/#hero",
-  },
-  {
-    label: "work",
-    href: "/#things-i-shipped",
-  },
-  {
-    label: "about-me",
-    href: "/#about-me",
-  },
-  {
-    label: "contacts",
-    href: "/contact",
-  },
+// BB TraderX numbers come from the production database (real-money only: demo/sandbox trades
+// excluded, the same rule the admin panel uses). Users and trades cover the growth window
+// Aug 1 – Sep 25, 2026; volume and copy traders are all-time. Refresh both together.
+export const STATS_WINDOW = "Aug 1 – Sep 25, 2026";
+
+export const profile = {
+  name: "Edward Ornelas",
+  title: "Senior AI Engineer",
+  location: "Austin, TX",
+  availability: "Open to on-site or hybrid in Austin, and remote",
+  headline: "I ship AI products to production.",
+  summary:
+    "I build AI systems you can measure, from the harness that tests them to the backend they run on.",
+  focus: ["AI harnesses", "Agents", "Evals", "MCP", "Full-stack"],
+  email: "ornelasedward@rocketmail.com",
+};
+
+// Rendered black (brightness-0) in the marquee; keepDetail logos go grayscale instead because a
+// solid silhouette would lose their mark. h is the display height, tuned per logo so wide
+// wordmarks don't out-shout compact ones.
+export const logos: {
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+  h: number;
+  keepDetail?: boolean;
+}[] = [
+  { name: "Calvis", src: "/logos/calvis.svg", width: 380, height: 73, h: 22 },
+  { name: "Hyperliquid", src: "/logos/hyperliquid.svg", width: 115, height: 19, h: 22 },
+  { name: "BizScout", src: "/logos/bizscout.svg", width: 202, height: 41, h: 24 },
+  { name: "TradingView", src: "/logos/tradingview.svg", width: 147, height: 28, h: 22 },
+  { name: "Contrarian Thinking", src: "/logos/contrarian-thinking.svg", width: 170, height: 60, h: 34 },
+  { name: "Glassnode", src: "/logos/glassnode.png", width: 500, height: 102, h: 24 },
+  { name: "Telos Health Solutions", src: "/logos/telos.png", width: 1640, height: 546, h: 32 },
+  { name: "CoinGecko", src: "/logos/coingecko.png", width: 592, height: 130, h: 26, keepDetail: true },
+  { name: "Mastermind", src: "/logos/mastermind.svg", width: 199, height: 24, h: 20 },
+  { name: "Layer3", src: "/logos/layer3-mark.svg", width: 152, height: 28, h: 22 },
+  { name: "CoinGlass", src: "/logos/coinglass.svg", width: 1076, height: 256, h: 24 },
+  { name: "Moralis", src: "/logos/moralis.webp", width: 218, height: 52, h: 26 },
+  { name: "MoonPay", src: "/logos/moonpay.svg", width: 100, height: 20, h: 22 },
 ];
 
-// project
-
-const credentialsData = [
-  {
-    label: "Role",
-    value: "Full Stack Engineer ·\u00a0Founding\u00a0Builder",
-  },
-  {
-    label: "Built in",
-    value: "Healthcare · Fintech · Crypto ·\u00a0Creator\u00a0economy",
-  },
-  {
-    label: "Favorite AI stack",
-    value: "Cursor · Codex · Claude",
-  },
-  {
-    label: "Education",
-    value: "B.S. Information & Communications Technology · Cyber Defense",
-  },
+export const links = [
+  { label: "Email", href: `mailto:${profile.email}` },
+  { label: "GitHub", href: "https://github.com/ornelasedward" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/edward-ornelas/" },
+  { label: "X", href: "https://x.com/_edwardornelas" },
+  { label: "YouTube", href: "https://www.youtube.com/@EdwardOrnelas" },
 ];
 
-const aboutContent = {
-  label: "01 — about-me",
-  paragraphs: [
-    "Based in Austin, I build products end-to-end across AI, crypto, healthcare, and education. Over the last few years I've shipped trading platforms, analytics systems, internal tools, CMS platforms, and automations—working directly with founders and owning implementation from idea to launch.",
-    "I like ambiguity, shipping fast, and turning rough concepts into working products. Most of my recent work has involved AI-assisted development, automation systems, and taking products from 0→1.",
-    "I hold a B.S. in Information and Communications Technology with a focus in Cyber Defense, and I bring a bias for shipping, strong ownership, and building systems that people actually use.",
-  ],
-  detailSections: [
-    [
-      { label: "Now", value: "Full Stack Engineer ·\u00a0Founding\u00a0Builder" },
-      { label: "Since", value: "Shipping products independently" },
-      { label: "Based in", value: "Austin, Texas" },
-    ],
-    [
-      { label: "Built in", value: "Healthcare · Fintech · Crypto ·\u00a0Creator\u00a0economy" },
-      { label: "Stack", value: "Cursor · Codex · Claude · Next.js · .NET" },
-    ],
-    [
-      { label: "Edu", value: "B.S. Information & Communications Technology · Cyber Defense" },
-      { label: "Also", value: "AI-native workflows · Live in production" },
-    ],
-  ],
+export type Stat = { value: string; label: string };
+
+export type Project = {
+  id: string;
+  name: string;
+  kind: string;
+  period?: string;
+  image: StaticImageData;
+  href: string;
+  hrefLabel: string;
+  summary: string;
+  ai?: string[];
+  features?: string[];
+  engineering?: string[];
+  built?: string[];
+  stats: Stat[];
+  statsNote?: string;
+  stack: string[];
 };
 
-const dontHireMeContent = {
-  tag: "// fit",
-  dontHireTitle: "Don't hire me if…",
-  hireTitle: "Hire me if…",
-  dontHireItems: [
-    "you don't like someone with self agency",
-    "you don't want someone with the ability to think outside the box",
-    "you don't want to ship products",
-    "you prefer someone who moves slow",
-    "you don't want someone that takes software from ideas into execution",
-    "you don't want someone who has built products with real revenue and users",
-  ],
-  hireItems: [
-    "you value someone with self agency",
-    "you want someone with the ability to think outside the box",
-    "you want to ship products",
-    "you want someone who moves fast",
-    "you want someone that takes software from ideas into execution",
-    "you want someone who has built products with real revenue and users",
-  ],
-};
-
-const contactContent = {
-  headline: {
-    before: "Let's build ",
-    accent: "software",
-    after: " that ships.",
-  },
-  links: [
-    {
-      label: "Email",
-      value: "ornelasedward@rocketmail.com",
-      href: "mailto:ornelasedward@rocketmail.com",
-    },
-    {
-      label: "Phone",
-      value: "575-513-6238",
-      href: "tel:+15755136238",
-    },
-    {
-      label: "LinkedIn",
-      value: "linkedin.com/in/edward-ornelas",
-      href: "https://www.linkedin.com/in/edward-ornelas-681b52131/",
-    },
-  ],
-};
-
-const techStackContent = {
-  tag: "// stack",
-  title: "What I build with",
-  subtitle: "The tools I reach for to take products from a blank repo to live in production.",
-  categories: [
-    {
-      icon: "{ }",
-      label: "Languages",
-      items: ["Python", "C#", "TypeScript", "JavaScript", "SQL"],
-    },
-    {
-      icon: "</>",
-      label: "Frontend",
-      items: [
-        "React",
-        "Next.js",
-        "SSR / SSG",
-        "Server Components",
-        "Server Actions",
-        "TypeScript",
-        "Tailwind",
-      ],
-    },
-    {
-      icon: "⟨⟩",
-      label: "Backend",
-      items: [".NET", "Node.js", "Python", "REST APIs", "Microservices"],
-    },
-    {
-      icon: "DB",
-      label: "Data",
-      items: ["PostgreSQL", "Supabase", "Redis", "Firebase", "BigQuery"],
-    },
-    {
-      icon: "☁",
-      label: "Cloud & Infra",
-      items: ["Azure", "AWS", "GCP", "Docker", "Linux", "CI/CD", "Edge functions", "Serverless"],
-    },
-    {
-      icon: "AI",
-      label: "AI toolkit",
-      items: ["Cursor", "Codex", "Claude", "Anthropic API"],
-    },
-  ],
-};
-
-const aiToolkitContent = {
-  tag: "// ai-toolkit",
-  title: "AI-native toolkit",
-  subtitle: "The tools that shorten the distance between idea and shipped product.",
-  tools: [
-    {
-      num: "01",
-      name: "Cursor",
-      role: "Primary IDE",
-      description:
-        "Where the code actually gets written. Pair-programming with frontier models in the loop turns half-day tasks into half-hour tasks.",
-    },
-    {
-      num: "02",
-      name: "Codex",
-      role: "Code generation",
-      description:
-        "Reach-for-it tool for scaffolding, refactors, and turning a paragraph of intent into working code in a single pass.",
-    },
-    {
-      num: "03",
-      name: "Claude",
-      role: "Reasoning & product thinking",
-      description:
-        "Architecture decisions, gnarly debugging, and the kind of long-context reasoning that turns rough specs into clean systems.",
-    },
-    {
-      num: "04",
-      name: "Anthropic API",
-      role: "In-product AI",
-      description:
-        "The layer I ship AI features on. RAG systems, agentic workflows, and LLM pipelines integrated directly into production products.",
-    },
-  ],
-};
-
-const shippedProjects = [
+export const projects: Project[] = [
   {
+    id: "traderx",
     name: "BB TraderX",
-    tags: ["AI Trading", "Next.js", ".NET", "Agentic Workflows"],
-    paragraphs: [
-      "AI-powered trading automation platform built end-to-end with strategy generation, Hyperliquid integrations, and agentic development workflows.",
-      "Shipped to 205+ users in the first 1.5 weeks with 120+ strategies published and 140+ strategy followers.",
+    kind: "Follow a trading strategy. Your account trades it live.",
+    period: "2026 – now",
+    image: traderx,
+    href: "https://www.bbtraderx.com/",
+    hrefLabel: "bbtraderx.com",
+    summary:
+      "A marketplace of automated trading strategies. Publishers build and prove a strategy, and anyone can follow it with real money in one click, across crypto and stocks on Hyperliquid.",
+    features: [
+      "A three-click AI strategy builder. Pick a coin, hit Find, and AI Studio hands back a strategy that's profitable after trading fees and holds up on out-of-sample and walk-forward tests. Improve swaps better rules into a strategy that's already live.",
+      "Every follow gets its own custodial wallet. When a strategy fires, the backend fans the signal out as one task per follower and sizes each order against that wallet.",
+      "Deposits come in from anywhere. Chain webhooks record them, a backstop job catches the ones the webhooks miss, and USDC gets forwarded into Hyperliquid's bridge. Wrong-token or wrong-chain deposits are swapped or bridged through Relay instead of getting stranded.",
+      "I also wrote the team's MCP server: 28 read-only tools over users, deposits, withdrawals, follows, copy tasks, trades and revenue, served statelessly over Streamable HTTP with OAuth discovery, so anyone on the team can ask Claude about live platform data.",
     ],
     stats: [
-      { value: "205+", label: "Users in 1.5 weeks" },
-      { value: "120+", label: "Strategies published" },
+      { value: "2,200+", label: "New users in 8 weeks" },
+      { value: "47k+", label: "Trades in 8 weeks" },
+      { value: "$45M+", label: "Trading volume" },
+      { value: "500+", label: "Traders copying strategies" },
     ],
-    features_image: traderx,
-    liveLink: "https://www.bbtraderx.com/",
-    linkSublabel: "Visit the platform",
+    statsNote: `8-week figures: ${STATS_WINDOW}. Volume and copy traders: all time.`,
+    stack: [
+      "Claude API",
+      "Vercel AI SDK",
+      "MCP",
+      "Next.js 16",
+      "TypeScript",
+      ".NET 10",
+      "SignalR",
+      "PostgreSQL",
+      "Supabase",
+      "Hyperliquid",
+      "Docker",
+    ],
   },
   {
+    id: "terminal",
     name: "BB Terminal",
-    tags: ["Crypto Analytics", "Next.js", "PostgreSQL", "Real-time Data"],
-    paragraphs: [
-      "All-in-one crypto intelligence platform tracking 50+ assets with pro trading indicators, portfolio tools, and real-time market data.",
-      "Scaled to 275k+ monthly views and $150k/mo in business impact after shipping from zero.",
+    kind: "Research a token and trade it without leaving the chart.",
+    image: terminal,
+    href: "https://app.bbterminal.com/degen",
+    hrefLabel: "bbterminal.com",
+    summary:
+      "A crypto trading terminal with live charts, holder and top-trader data, and in-app trading from custodial Solana and EVM wallets. I've worked on it since 2024, across the Next.js front end and the .NET backend.",
+    features: [
+      "On-chain trading straight from the chart. Each user gets custodial Solana and EVM trade wallets; a swap is built unsigned, held for 80 seconds while the user confirms, then signed and broadcast through Particle Network, and fills come back over SignalR. I built the trade panel around it, with the watchlist and trending pairs beside the order form and a deposit prompt when you buy with an empty wallet.",
+      "Built out the token pages. On the backend I wired in CoinGecko token info, holder PnL, a megafilter screener and new chains like Robinhood and Stable. On the front end, TradingView charts that prefetch candles, reuse one widget as you move between tokens, and keep price and market cap in sync.",
+      "Made token search fast by routing it through GeckoTerminal and batching DexScreener lookups. Slow providers now time out and fall back to cached pool info instead of hanging the page.",
+      "Wrote the staff-only admin APIs for dashboard stats, trading activity and favorites, and wired the admin panel to them.",
     ],
     stats: [
-      { value: "275k+", label: "Monthly views" },
-      { value: "$150k", label: "Mo business impact" },
+      { value: "67", label: "Chains of token data" },
+      { value: "25+", label: "Market data providers" },
+      { value: "160+", label: "API endpoints" },
+      { value: "12", label: "Backend microservices" },
     ],
-    features_image: terminal,
-    liveLink: "https://app.bbterminal.com/degen",
-    linkSublabel: "Visit the platform",
+    stack: ["Next.js", "TypeScript", "TradingView", "SignalR", ".NET", "PostgreSQL", "Particle Network", "Kubernetes"],
   },
   {
+    id: "telos",
     name: "Telos Health",
-    tags: ["Healthcare", "HIPAA", "Angular", "NestJS"],
-    paragraphs: [
-      "Modular healthcare platform for clinicians, admins, and patients—HIPAA-compliant infrastructure with responsive frontends and secure APIs.",
-      "Shipped across 3 portals serving 20,000+ patients for home health agencies.",
+    kind: "Remote patient monitoring for home health agencies.",
+    period: "Aug 2023 – Jan 2024",
+    image: telo,
+    href: "https://teloshs.com/",
+    hrefLabel: "teloshs.com",
+    summary:
+      "Telos lets Texas home health agencies monitor patients between visits and get reimbursed by Medicaid for it. I was a front-end engineer on the platform.",
+    built: [
+      "Worked across all three portals: the agency portal for home health admins, the staff portal Telos uses to onboard patients, and the clinician app nurses check between visits.",
+      "Built the patient intake flow (import, pending, queued, active) with approval and activation steps and decline reasons.",
+      "Rebuilt the clinician app around collapsible patient cards with search, and made it work on a phone.",
+      "Standardized the data tables and filters across the portals, and added care team and permissions management.",
     ],
     stats: [
       { value: "20,000+", label: "Patients served" },
-      { value: "3", label: "Portals shipped" },
+      { value: "3", label: "Portals" },
     ],
-    features_image: telo,
-    liveLink: "https://www.linkedin.com/company/telos-health-solutions/posts/?feedView=images",
-    linkSublabel: "View company",
+    stack: ["JavaScript", "Lit", "Tabulator", "Directus", "Node.js", "PostgreSQL"],
   },
 ];
 
-const projectsData = {
-  complete: [
-    {
-      name: "BB TraderX",
-      tools: ["Next.js", ".NET", "TypeScript", "Hyperliquid APIs", "AI Agents"],
-      features_image: traderx,
-      description:
-        "AI-powered trading automation platform—205+ users in the first 1.5 weeks, 120+ strategies published, 140+ strategy followers. Built end-to-end with agentic development workflows, strategy generation, and Hyperliquid integrations.",
-      liveLink: "https://www.bbtraderx.com/",
-      github: "",
-    },
-    {
-      name: "BB Terminal",
-      tools: ["Next.js", "React", "TypeScript", "Firebase", "PostgreSQL", "Docker", "Azure"],
-      features_image: terminal,
-      description:
-        "Crypto intelligence platform tracking 50+ assets with pro trading indicators, portfolio tools, and real-time market data. Shipped and scaled to 275k+ monthly views and $150k/mo business impact.",
-      liveLink: "https://app.bbterminal.com/degen",
-      github: "",
-    },
-    {
-      name: "Telos Health",
-      tools: ["Angular", "NestJS", "PostgreSQL", "SCSS", "Docker", "Directus"],
-      features_image: telo,
-      description:
-        "Modular healthcare platform for clinicians, admins, and patients—HIPAA-compliant infra, responsive frontends, and secure APIs. Shipped across 3 portals serving 20,000+ patients.",
-      liveLink: "https://www.linkedin.com/company/telos-health-solutions/posts/?feedView=images",
-      github: "",
-    },
-    {
-      name: "BB Academy",
-      tools: ["React", "Next.js", "Node.js", "SanityCMS", "Stripe", "Vimeo", "Google Cloud Functions", "Firebase"],
-      features_image: bbAcademy,
-      description:
-        "Course platform + CMS that created a new revenue stream—checkout, modular course management, and self-serve publishing built end-to-end with Stripe and Sanity.",
-      liveLink: "https://becausebitcoin.com/academy",
-      github: "",
-
-    },
-    // {
-    //   name: "Daizy AI",
-    //   tools: ["HTML", "CSS", "Express", "Node.js"],
-    //   features_image: kahot,
-    //   description: "Get answers to your kahoot quiz",
-    //   liveLink: "/",
-    //   github: "",
-    // },
-    // {
-    //   name: "Portfolio",
-    //   tools: ["Vue", "TS", "Less"],
-    //   features_image: eliasPortfolio,
-    //   description: "You’re using it rn",
-    //   liveLink: "/",
-    //   github: "",
-    // },
-  ],
-  smallProject: [
-    {
-      name: "profitwise blog",
-      tools: ["Sanity CMS", "TS", "JS", "API"],
-
-      description:
-        "Ultizing NextJS and Sanity to create a Dynamically SSR blog",
-      liveLink: "https://profitwise.blog",
-    },
-    {
-      name: "Daizy AI",
-      tools: ["GPT-4 API", "TS", "T3 Stack"],
-
-      description:
-        "A Saas inspired landing page with integrations with Open AI;s API",
-      liveLink: "https://daizyai.com",
-    },
-    {
-      name: "Mired",
-      tools: ["Figma", "NextJS", "JS", "Mail API"],
-
-      description: "From Figma to Development, Mired a Web design Site",
-      liveLink: "https://mired.io",
-    },
-    // {
-    //   name: "CSS expirementse",
-    //   tools: ["Figma"],
-
-    //   description: "Collection of my different little projects in css",
-    //   liveLink: "/",
-    // },
-    // {
-    //   name: "Web Dev nvim config",
-    //   tools: ["Lua", "NeoVim"],
-
-    //   description: "Recreation of the UI of Twitch streaming platform.",
-    //   liveLink: "/",
-    // },
-    // {
-    //   name: "Crash protect website",
-    //   tools: ["Figma"],
-
-    //   description:
-    //     "Figma template for website about anti-raid, anti-crash discord bot",
-    //   liveLink: "/",
-    // },
-  ],
+// Smaller AI builds. The Calvis AI eval harness was built onsite with their CTO; the repo is
+// private, so it links to their site rather than the code.
+export type AiBuild = {
+  name: string;
+  kind: string;
+  period: string;
+  image?: StaticImageData;
+  imageHref?: string;
+  href?: string;
+  hrefLabel?: string;
+  summary: string;
+  points: string[];
+  stack: string[];
 };
 
-export {
-  navLinksData,
-  credentialsData,
-  aboutContent,
-  dontHireMeContent,
-  contactContent,
-  shippedProjects,
-  projectsData,
-  techStackContent,
-  aiToolkitContent,
+export const aiBuilds: AiBuild[] = [
+  {
+    name: "Calvis AI · Prompt eval harness",
+    kind: "Proves a prompt change is safe before it ships.",
+    period: "2026",
+    image: calvis,
+    href: "https://calvis.com/",
+    hrefLabel: "calvis.com",
+    summary:
+      "Calvis runs an AI copilot for security guards. Working onsite with their CTO, I built the eval harness that decides whether a prompt change ships, by replaying real shifts against the old and new prompt on the same model.",
+    points: [
+      "The dataset is recorded guard shifts, replayed turn by turn and as full shifts. A recorded tool result is served only on an exact match of tool and input, so a changed prompt can't borrow the old run's answers.",
+      "Every change names what must improve, what must stay true and what must never happen, scored on behavior and tool calls rather than prose, over three runs. One edit took claim verification from 67–75% to 100% without losing a reply or an escalation.",
+      "It fixes itself. Point it at a shift and it finds what the copilot got wrong, writes a one-file prompt fix, and keeps it only if every safety check still passes. A human just approves the merge.",
+    ],
+    stack: ["Python", "OpenAI API", "Claude API", "pytest", "GitHub Actions"],
+  },
+  {
+    name: "agentd",
+    kind: "Push an agent. Get an API, an MCP server and a playground.",
+    period: "2026",
+    href: "https://github.com/ornelasedward/mcp-deploy",
+    hrefLabel: "GitHub",
+    summary:
+      "A deployment platform for AI agents. One git push ships an agent as an API, an MCP server, a CLI and a shareable playground.",
+    points: [
+      "An agent is a folder with a manifest. The platform builds it into an immutable artifact and serves it over HTTP, SSE streaming, a CLI and an auto-generated MCP server from one registry.",
+      "Agent code runs in an E2B sandbox, but model calls, traces and tools go back through a bridge to the platform gateway, which is the only path to an LLM and enforces each org's monthly budget.",
+      "Deploys come from a signed GitHub webhook with PR preview URLs. Eval cases, including LLM-as-judge, run on every deploy and block a regression, and long runs are durable on Inngest and can pause for human approval.",
+    ],
+    stack: ["TypeScript", "Hono", "Next.js", "MCP", "PostgreSQL", "E2B", "Inngest", "Docker"],
+  },
+
+];
+
+export const sideProjects: AiBuild[] = [
+  {
+    name: "BizScout · httpbin Monitor",
+    kind: "Ask your monitoring data what went wrong.",
+    period: "2026",
+    image: bizscout,
+    href: "https://www.bizscout.com/",
+    hrefLabel: "bizscout.com",
+    summary:
+      "Built for BizScout: a live API monitor with a Claude analyst inside. Ask it why latency spiked, and it writes its own incident report when response times double.",
+    points: [
+      "A scheduler posts randomized payloads to httpbin, stores every result in Postgres through Prisma, and pushes new rows to the dashboard over Socket.IO.",
+      "The chat streams over SSE and can query the data with tools, up to three rounds per question. Every 60 seconds a monitor looks for responses slower than twice the rolling average and has Claude file a report through a forced tool call, so the output is always structured before it's saved.",
+      "Costs stay predictable: a token count before every call, an 8k input budget, a shared hourly rate limit, and a cache keyed to a fingerprint of the data, so answers go stale the moment new pings land.",
+    ],
+    stack: ["Claude API", "Node.js", "Express", "Socket.IO", "Prisma", "PostgreSQL", "React"],
+  },];
+
+// AI rows lead and name the projects that back them, so each claim has a place to check it.
+export const stack: { label: string; note?: string; items: string[]; proof?: string }[] = [
+  {
+    label: "AI harnesses",
+    items: [
+      "harnesses that run, replay and grade models against real production data",
+      "self-improving prompt loops",
+      "prompt and context assembly",
+      "a trace on every run",
+    ],
+    proof: "Calvis AI, agentd",
+  },
+  {
+    label: "LLM products",
+    items: [
+      "Claude (Opus, Sonnet, Haiku) and OpenAI",
+      "Vercel AI SDK",
+      "streaming chat",
+      "structured output via forced tool calls",
+      "image input",
+    ],
+    proof: "TraderX, BizScout",
+  },
+  {
+    label: "Agents and tools",
+    items: [
+      "tool-use loops",
+      "MCP servers with OAuth",
+      "sandboxed agent runtimes",
+      "durable runs with human approval",
+    ],
+    proof: "agentd, TraderX",
+  },
+  {
+    label: "Evals",
+    items: [
+      "deterministic scorers",
+      "safety holdouts",
+      "LLM-as-judge",
+      "regression gates on deploy",
+    ],
+    proof: "Calvis AI, agentd",
+  },
+  {
+    label: "Cost and reliability",
+    items: [
+      "token budgets checked before every call",
+      "per-team spend caps",
+      "rate limits",
+      "caches that invalidate on new data",
+      "picking the model per task",
+    ],
+    proof: "BizScout, agentd",
+  },
+  {
+    label: "How I ship",
+    items: ["Claude Code", "Cursor", "Codex", "agents in the loop on every change"],
+  },
+  { label: "Languages", items: ["TypeScript", "C#", "Python", "SQL"] },
+  {
+    label: "Product engineering",
+    items: ["React", "Next.js", "Tailwind", ".NET / ASP.NET Core", "Node.js", "SignalR", "background workers"],
+  },
+  {
+    label: "Data and infra",
+    items: ["PostgreSQL", "Supabase", "Redis", "Docker", "Kubernetes", "GitHub Actions", "Vercel", "Cloudflare", "AWS", "Azure", "GCP"],
+  },
+];
+
+export const education = {
+  degree: "B.S. Information & Communications Technology",
+  focus: "Cyber Defense",
 };

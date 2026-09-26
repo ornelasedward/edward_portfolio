@@ -1,44 +1,45 @@
-import Container from "@/components/Container";
-import Inquire from "@/components/pages/contact/Form";
-import { contactContent } from "@/constant";
-import Link from "next/link";
+import type { Metadata } from 'next';
+import Row from '@/components/resume/Row';
+import Inquire from '@/components/pages/contact/Form';
+import { links, profile } from '@/constant';
+
+export const metadata: Metadata = {
+  title: 'Contact · Edward Ornelas',
+};
 
 const ContactsPage = () => {
-  const { headline, links } = contactContent;
-
   return (
-    <div className="relative py-10 lg:py-16">
-      <Container classes="space-y-16 lg:space-y-24">
-        <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-gray">Contact</p>
-        </div>
-        <div>
-          <h1 className="max-w-4xl text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4rem]">
-            {headline.before}
-            <span className="text-primary">{headline.accent}</span>
-            {headline.after}
-          </h1>
-        </div>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+    <>
+      <section className="border-t border-line px-4 py-12 sm:px-6 md:py-16">
+        <p className="label">Contact</p>
+        <h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-[1.15] tracking-tight sm:text-4xl">
+          Let&apos;s build something that ships.
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg text-muted">{profile.availability}.</p>
+      </section>
+
+      <Row label="Direct">
+        <ul className="divide-y divide-line border-y border-line">
           {links.map((link) => (
-            <div key={link.label}>
-              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-gray">
-                {link.label}
-              </p>
-              <Link
+            <li key={link.label} className="flex items-baseline justify-between gap-6 py-3">
+              <span className="label">{link.label}</span>
+              <a
                 href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-base text-white underline decoration-gray underline-offset-4 transition-colors hover:text-primary hover:decoration-primary lg:text-lg"
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="truncate link"
               >
-                {link.value}
-              </Link>
-            </div>
+                {link.href.replace(/^mailto:|^https:\/\/(www\.)?/g, '')}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
+      </Row>
+
+      <Row label="Message">
         <Inquire />
-      </Container>
-    </div>
+      </Row>
+    </>
   );
 };
 

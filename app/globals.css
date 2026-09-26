@@ -8,28 +8,41 @@ html {
 
 @layer base {
   body {
-    @apply bg-primary-dark text-white text-[1em];
+    @apply bg-paper font-sans text-ink antialiased;
   }
-  h2 {
-    @apply text-[2em] leading-normal font-semibold;
+  ::selection {
+    @apply bg-ink text-paper;
   }
-  p {
-    @apply text-[1em] leading-[25px] text-gray;
-  }
-  h3 {
-    @apply text-[1.5em] leading-normal font-medium;
-  }
-  h4 {
-    @apply text-[1.25em]  leading-normal font-normal;
-  }
-}
-
-@media (max-width: 280px) {
 }
 
 @layer components {
+  /* Small uppercase label used for section names and table headers. */
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-muted;
+  }
+  .link {
+    @apply underline decoration-faint underline-offset-4 transition-colors hover:decoration-ink;
+  }
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
 }
-.mobile_navbar {
-  transform: translateX(0px) !important;
-  transition: 0.5s all ease !important;
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced-motion visitors still get the strip, just slower. It is slow, linear and pauses on hover. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation-duration: 80s;
+  }
 }

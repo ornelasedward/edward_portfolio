@@ -27,6 +27,8 @@ import dots3 from "./images/dots4.svg";
 import topRegR from "./images/topRegtengle.png";
 import topRefL from "./images/topRefLeft.svg";
 import logoForge from "./images/logoForge.png";
+import calvis from "./images/calvis.png";
+import bizscout from "./images/bizscout.png";
 export {
   logo,
   terminalImage,
@@ -57,4 +59,6 @@ export {
   topRegR,
   topRefL,
   logoForge,
+  calvis,
+  bizscout,
 };
