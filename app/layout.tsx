@@ -11,7 +11,7 @@ const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 const title = 'Edward Ornelas · AI Engineer & Tech Lead';
 const description =
-  'AI engineer and tech lead in Austin, TX. I lead an 8-engineer team at BB TraderX and build LLM features, agents and evals, and the production systems that keep them running.';
+  'AI engineer and tech lead in Austin, TX. I lead a team of 8 developers and put AI to work across how a team builds, how operations run, and what customers use.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.edward-ornelas.com'),

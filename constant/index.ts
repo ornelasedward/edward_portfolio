@@ -11,7 +11,7 @@ export const profile = {
   availability: "Open to on-site or hybrid in Austin, and remote",
   headline: "I ship AI products to production.",
   summary:
-    "I lead an 8-engineer team at BB TraderX, and I build AI systems you can measure, from the harness that tests them to the backend they run on.",
+    "4 years shipping production applications and systems. I lead a team of 8 developers and build products end to end, from the architecture to the partnerships that bring people in. My focus is putting AI to work across three layers of a business: how the team builds, how operations run, and what customers use. Each one is a loop that keeps improving while a person sets the direction.",
   focus: ["AI harnesses", "Agents", "Evals", "MCP", "Full-stack", "Team lead"],
   email: "ornelasedward@rocketmail.com",
 };
