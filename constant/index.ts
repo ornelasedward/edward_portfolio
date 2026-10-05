@@ -1,20 +1,18 @@
 import { bizscout, calvis, telo, terminal, traderx } from "@/assets";
 import type { StaticImageData } from "next/image";
 
-// BB TraderX numbers come from the production database (real-money only: demo/sandbox trades
-// excluded, the same rule the admin panel uses). Users and trades cover the growth window
-// Aug 1 – Sep 25, 2026; volume and copy traders are all-time. Refresh both together.
-export const STATS_WINDOW = "Aug 1 – Sep 25, 2026";
+// Every role, date and number on this page mirrors the resume (Resume.docx). Change them together
+// so a reviewer who reads both sees one story.
 
 export const profile = {
   name: "Edward Ornelas",
-  title: "Senior AI Engineer",
+  title: "AI Engineer & Tech Lead",
   location: "Austin, TX",
   availability: "Open to on-site or hybrid in Austin, and remote",
   headline: "I ship AI products to production.",
   summary:
-    "I build AI systems you can measure, from the harness that tests them to the backend they run on.",
-  focus: ["AI harnesses", "Agents", "Evals", "MCP", "Full-stack"],
+    "I lead an 8-engineer team at BB TraderX, and I build AI systems you can measure, from the harness that tests them to the backend they run on.",
+  focus: ["AI harnesses", "Agents", "Evals", "MCP", "Full-stack", "Team lead"],
   email: "ornelasedward@rocketmail.com",
 };
 
@@ -57,6 +55,7 @@ export type Stat = { value: string; label: string };
 export type Project = {
   id: string;
   name: string;
+  role?: string;
   kind: string;
   period?: string;
   image: StaticImageData;
@@ -67,6 +66,7 @@ export type Project = {
   features?: string[];
   engineering?: string[];
   built?: string[];
+  growth?: string[];
   stats: Stat[];
   statsNote?: string;
   stack: string[];
@@ -76,34 +76,38 @@ export const projects: Project[] = [
   {
     id: "traderx",
     name: "BB TraderX",
-    kind: "Follow a trading strategy. Your account trades it live.",
-    period: "2026 – now",
+    role: "Lead Software Engineer",
+    kind: "Build a trading strategy, or follow one. Your account trades it live.",
+    period: "Nov 2025 – now",
     image: traderx,
     href: "https://www.bbtraderx.com/",
     hrefLabel: "bbtraderx.com",
     summary:
-      "A marketplace of automated trading strategies. Publishers build and prove a strategy, and anyone can follow it with real money in one click, across crypto and stocks on Hyperliquid.",
+      "I directed and built TraderX, an automated strategy marketplace routing perpetual futures execution through Hyperliquid. Users build a strategy, others follow it with real money in one click, and it runs autonomously in each account's isolated wallet. Idea to production in six months.",
     features: [
-      "A three-click AI strategy builder. Pick a coin, hit Find, and AI Studio hands back a strategy that's profitable after trading fees and holds up on out-of-sample and walk-forward tests. Improve swaps better rules into a strategy that's already live.",
-      "Every follow gets its own custodial wallet. When a strategy fires, the backend fans the signal out as one task per follower and sizes each order against that wallet.",
-      "Deposits come in from anywhere. Chain webhooks record them, a backstop job catches the ones the webhooks miss, and USDC gets forwarded into Hyperliquid's bridge. Wrong-token or wrong-chain deposits are swapped or bridged through Relay instead of getting stranded.",
-      "I also wrote the team's MCP server: 28 read-only tools over users, deposits, withdrawals, follows, copy tasks, trades and revenue, served statelessly over Streamable HTTP with OAuth discovery, so anyone on the team can ask Claude about live platform data.",
+      "I lead a team of 8 engineers, set the roadmap with the CEO and CFO and ship against it weekly. Every change gets an AI code review in CI/CD, and a developer approves each production merge.",
+      "AI Studio generates a trading strategy from a single ticker. Market data is normalized behind defined endpoints, and the model works through deterministic tool calls, choosing from the indicators, conditions and strategy types I built. Each combination is backtested for PnL; the model keeps the most profitable one and adds a trend filter when it needs one, like only going long above the 200 EMA.",
+      "The trading infrastructure runs on C#/.NET microservices with Redis and PostgreSQL. Every follow gets its own custodial Solana or EVM wallet with keys encrypted at rest, and when a strategy fires, the backend fans the signal out as one task per follower and sizes each order against that wallet.",
+      "I wrote the internal MCP server: 28 read-only tools over users, deposits, withdrawals, follows, copy tasks, trades and revenue, served over Streamable HTTP with OAuth, so leadership can query live platform data through AI models.",
+    ],
+    growth: [
+      "I run partner campaigns end to end with Layer3, Austin Hill and Zach Humphreys: a custom metrics API per partner (onboarding, quests, referrals, deposits, volume), plus the landing pages, signup and win-back emails, dashboards and CRM.",
     ],
     stats: [
-      { value: "2,200+", label: "New users in 8 weeks" },
-      { value: "47k+", label: "Trades in 8 weeks" },
-      { value: "$45M+", label: "Trading volume" },
-      { value: "500+", label: "Traders copying strategies" },
+      { value: "4,000+", label: "Users" },
+      { value: "$50M", label: "Trading volume" },
+      { value: "6 mo", label: "Idea to production" },
+      { value: "8", label: "Engineers led" },
     ],
-    statsNote: `8-week figures: ${STATS_WINDOW}. Volume and copy traders: all time.`,
     stack: [
       "Claude API",
       "Vercel AI SDK",
       "MCP",
-      "Next.js 16",
+      "Next.js",
       "TypeScript",
-      ".NET 10",
+      "C# / .NET",
       "SignalR",
+      "Redis",
       "PostgreSQL",
       "Supabase",
       "Hyperliquid",
@@ -111,56 +115,62 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "terminal",
-    name: "BB Terminal",
-    kind: "Research a token and trade it without leaving the chart.",
+    id: "becausebitcoin",
+    name: "BecauseBitcoin",
+    role: "Full-Stack Software Engineer",
+    kind: "Joined as the sole developer at $0 revenue. Built the products that grew it to $300K a month.",
+    period: "Jan 2023 – Nov 2025",
     image: terminal,
     href: "https://app.bbterminal.com/degen",
     hrefLabel: "bbterminal.com",
     summary:
-      "A crypto trading terminal with live charts, holder and top-trader data, and in-app trading from custodial Solana and EVM wallets. I've worked on it since 2024, across the Next.js front end and the .NET backend.",
+      "I rebuilt the site from WordPress into Next.js, Tailwind and Firebase with auth, Stripe checkout and a CMS, then moved the stack to Dockerized microservices on Azure. From there I built the news and analytics platform, then BB Terminal, the market-data and on-chain trading platform that TraderX now runs on. The company grew to a team of 8.",
     features: [
-      "On-chain trading straight from the chart. Each user gets custodial Solana and EVM trade wallets; a swap is built unsigned, held for 80 seconds while the user confirms, then signed and broadcast through Particle Network, and fills come back over SignalR. I built the trade panel around it, with the watchlist and trending pairs beside the order form and a deposit prompt when you buy with an empty wallet.",
-      "Built out the token pages. On the backend I wired in CoinGecko token info, holder PnL, a megafilter screener and new chains like Robinhood and Stable. On the front end, TradingView charts that prefetch candles, reuse one widget as you move between tokens, and keep price and market cap in sync.",
-      "Made token search fast by routing it through GeckoTerminal and batching DexScreener lookups. Slow providers now time out and fall back to cached pool info instead of hanging the page.",
-      "Wrote the staff-only admin APIs for dashboard stats, trading activity and favorites, and wired the admin panel to them.",
+      "BB Terminal covers 60+ chains and 100k+ assets: live TradingView charts, holder and top-trader data, and in-app trading from custodial Solana and EVM wallets. A swap is built unsigned, held while the user confirms, then signed and broadcast, and fills come back over SignalR.",
+      "Token search routes through GeckoTerminal with batched DexScreener lookups. Slow providers time out and fall back to cached pool info instead of hanging the page.",
+    ],
+    ai: [
+      "I wrote BB's AI strategy and built the automations behind it: a newsroom where one editor reviews 20 AI-drafted articles a day, and a Cloudflare pipeline that transcribes, summarizes and formats daily recordings into a weekly paid-member recap email.",
+    ],
+    growth: [
+      "Grew the YouTube channel from under 1,000 to 22,000+ subscribers, built BB Academy with the sales pipeline and checkout behind its courses, and wrote and automated the newsletter.",
     ],
     stats: [
-      { value: "67", label: "Chains of token data" },
-      { value: "25+", label: "Market data providers" },
-      { value: "160+", label: "API endpoints" },
-      { value: "12", label: "Backend microservices" },
+      { value: "$300K/mo", label: "Revenue, from $0" },
+      { value: "10,000+", label: "Registered readers" },
+      { value: "2,000+", label: "Daily Terminal users" },
+      { value: "22K+", label: "YouTube subscribers" },
     ],
-    stack: ["Next.js", "TypeScript", "TradingView", "SignalR", ".NET", "PostgreSQL", "Particle Network", "Kubernetes"],
+    stack: ["Next.js", "TypeScript", "Firebase", "Stripe", ".NET", "SignalR", "PostgreSQL", "Cloudflare", "Docker", "Azure"],
   },
   {
     id: "telos",
     name: "Telos Health",
-    kind: "Remote patient monitoring for home health agencies.",
-    period: "Aug 2023 – Jan 2024",
+    role: "Front-End and Mobile Engineer",
+    kind: "Remote patient monitoring for Texas home health agencies.",
+    period: "Aug 2023 – Apr 2024",
     image: telo,
     href: "https://teloshs.com/",
     hrefLabel: "teloshs.com",
     summary:
-      "Telos lets Texas home health agencies monitor patients between visits and get reimbursed by Medicaid for it. I was a front-end engineer on the platform.",
+      "Telos lets Texas home health agencies monitor patients between visits. I built the frontend for its portals and its patient app.",
     built: [
-      "Worked across all three portals: the agency portal for home health admins, the staff portal Telos uses to onboard patients, and the clinician app nurses check between visits.",
-      "Built the patient intake flow (import, pending, queued, active) with approval and activation steps and decline reasons.",
-      "Rebuilt the clinician app around collapsible patient cards with search, and made it work on a phone.",
-      "Standardized the data tables and filters across the portals, and added care team and permissions management.",
+      "Built the frontend for the agency, staff and clinician portals and the React Native patient app (check-ins, messaging their nurse) on Directus and PostgreSQL.",
+      "Built the patient intake flow from import through activation, with approval steps and decline reasons.",
+      "Sat in on meetings with agency owners and stakeholders, then shipped fixes and features from what they told us, including a phone-first clinician app built around collapsible patient cards for use between visits.",
     ],
     stats: [
       { value: "20,000+", label: "Patients served" },
-      { value: "3", label: "Portals" },
+      { value: "3", label: "Portals + patient app" },
     ],
-    stack: ["JavaScript", "Lit", "Tabulator", "Directus", "Node.js", "PostgreSQL"],
+    stack: ["JavaScript", "React Native", "Lit", "Directus", "Node.js", "PostgreSQL"],
   },
 ];
 
-// Smaller AI builds. The Calvis AI eval harness was built onsite with their CTO; the repo is
-// private, so it links to their site rather than the code.
+// Smaller AI builds. The Calvis AI repo is private, so it links to their site rather than the code.
 export type AiBuild = {
   name: string;
+  role?: string;
   kind: string;
   period: string;
   image?: StaticImageData;
@@ -175,19 +185,20 @@ export type AiBuild = {
 export const aiBuilds: AiBuild[] = [
   {
     name: "Calvis AI · Prompt eval harness",
+    role: "AI Engineer",
     kind: "Proves a prompt change is safe before it ships.",
-    period: "2026",
+    period: "Sep 2026",
     image: calvis,
     href: "https://calvis.com/",
     hrefLabel: "calvis.com",
     summary:
-      "Calvis runs an AI copilot for security guards. Working onsite with their CTO, I built the eval harness that decides whether a prompt change ships, by replaying real shifts against the old and new prompt on the same model.",
+      "Calvis runs an AI copilot for security guards. I built a self-improving eval harness that decides whether a prompt change is safe to ship, by replaying recorded guard shifts against the old and new prompt.",
     points: [
-      "The dataset is recorded guard shifts, replayed turn by turn and as full shifts. A recorded tool result is served only on an exact match of tool and input, so a changed prompt can't borrow the old run's answers.",
-      "Every change names what must improve, what must stay true and what must never happen, scored on behavior and tool calls rather than prose, over three runs. One edit took claim verification from 67–75% to 100% without losing a reply or an escalation.",
-      "It fixes itself. Point it at a shift and it finds what the copilot got wrong, writes a one-file prompt fix, and keeps it only if every safety check still passes. A human just approves the merge.",
+      "The replay and scoring engine: every change declares what must improve, what must stay true and what must never happen, and is graded on decisions, tool calls and escalations rather than prose.",
+      "A recorded tool result is served only on an exact match of tool and input, so a changed prompt can't borrow the old run's answers.",
+      "It fixes itself. Point it at a shift and it finds what the copilot got wrong, patches the prompt, re-runs the safety checks and keeps the fix only if nothing regresses. A person approves the merge.",
     ],
-    stack: ["Python", "OpenAI API", "Claude API", "pytest", "GitHub Actions"],
+    stack: ["Python", "pytest", "GitHub Actions", "OpenAI API", "Claude API"],
   },
   {
     name: "agentd",
@@ -204,7 +215,6 @@ export const aiBuilds: AiBuild[] = [
     ],
     stack: ["TypeScript", "Hono", "Next.js", "MCP", "PostgreSQL", "E2B", "Inngest", "Docker"],
   },
-
 ];
 
 export const sideProjects: AiBuild[] = [
@@ -216,7 +226,7 @@ export const sideProjects: AiBuild[] = [
     href: "https://www.bizscout.com/",
     hrefLabel: "bizscout.com",
     summary:
-      "Built for BizScout: a live API monitor with a Claude analyst inside. Ask it why latency spiked, and it writes its own incident report when response times double.",
+      "A technical assessment for BizScout: a live API monitor with a Claude analyst inside. Ask it why latency spiked, and it writes its own incident report when response times double.",
     points: [
       "A scheduler posts randomized payloads to httpbin, stores every result in Postgres through Prisma, and pushes new rows to the dashboard over Socket.IO.",
       "The chat streams over SSE and can query the data with tools, up to three rounds per question. Every 60 seconds a monitor looks for responses slower than twice the rolling average and has Claude file a report through a forced tool call, so the output is always structured before it's saved.",
@@ -246,7 +256,7 @@ export const stack: { label: string; note?: string; items: string[]; proof?: str
       "structured output via forced tool calls",
       "image input",
     ],
-    proof: "TraderX, BizScout",
+    proof: "TraderX, BecauseBitcoin, BizScout",
   },
   {
     label: "Agents and tools",
@@ -281,12 +291,12 @@ export const stack: { label: string; note?: string; items: string[]; proof?: str
   },
   {
     label: "How I ship",
-    items: ["Claude Code", "Cursor", "Codex", "agents in the loop on every change"],
+    items: ["Claude Code", "Cursor", "Codex", "AI code review in CI/CD", "a developer approves every production merge"],
   },
   { label: "Languages", items: ["TypeScript", "C#", "Python", "SQL"] },
   {
     label: "Product engineering",
-    items: ["React", "Next.js", "Tailwind", ".NET / ASP.NET Core", "Node.js", "SignalR", "background workers"],
+    items: ["React", "Next.js", "React Native", "Tailwind", ".NET / ASP.NET Core", "Node.js (Hono, Express)", "SignalR", "background workers"],
   },
   {
     label: "Data and infra",
@@ -295,6 +305,8 @@ export const stack: { label: string; note?: string; items: string[]; proof?: str
 ];
 
 export const education = {
-  degree: "B.S. Information & Communications Technology",
+  degree: "B.S. Information & Communication Technologies",
   focus: "Cyber Defense",
+  school: "New Mexico State University",
+  gpa: "3.9",
 };

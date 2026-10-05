@@ -16,7 +16,11 @@ const ProjectEntry = ({ project, index }: Props) => {
           </span>
           {project.name}
         </h3>
-        {project.period ? <span className="font-mono text-xs text-muted">{project.period}</span> : null}
+        {project.role || project.period ? (
+          <span className="font-mono text-xs text-muted">
+            {[project.role, project.period].filter(Boolean).join(" · ")}
+          </span>
+        ) : null}
       </header>
       <p className="mt-2 text-lg leading-snug">{project.kind}</p>
 
@@ -63,6 +67,7 @@ const ProjectEntry = ({ project, index }: Props) => {
       {project.ai ? <BulletList title="AI in the product" items={project.ai} /> : null}
       {project.built ? <BulletList title="What I built" items={project.built} /> : null}
       {project.engineering ? <BulletList title="Engineering" items={project.engineering} /> : null}
+      {project.growth ? <BulletList title="Growth and partnerships" items={project.growth} /> : null}
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
         <p className="font-mono text-xs leading-relaxed text-muted">{project.stack.join("  /  ")}</p>

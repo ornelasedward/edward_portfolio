@@ -75,7 +75,7 @@ export default function Home() {
         </div>
       </Row>
 
-      <Row label="Earlier products">
+      <Row label="Earlier roles">
         <div className="space-y-12">
           {earlier.map((project, i) => (
             <ProjectEntry key={project.id} project={project} index={i + 2} />
@@ -116,7 +116,9 @@ export default function Home() {
 
       <Row label="Education">
         <p className="font-medium">{education.degree}</p>
-        <p className="text-muted">Focus: {education.focus}</p>
+        <p className="text-muted">
+          {education.school} · Focus: {education.focus} · GPA {education.gpa}
+        </p>
       </Row>
 
       <Row id="contact" label="Contact">

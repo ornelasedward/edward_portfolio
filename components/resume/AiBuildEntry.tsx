@@ -7,7 +7,9 @@ const AiBuildEntry = ({ build }: { build: AiBuild }) => {
     <article className="border-t border-line pt-6 first:border-t-0 first:pt-0">
       <header className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
         <h3 className="text-xl font-semibold tracking-tight">{build.name}</h3>
-        <span className="font-mono text-xs text-muted">{build.period}</span>
+        <span className="font-mono text-xs text-muted">
+          {[build.role, build.period].filter(Boolean).join(" · ")}
+        </span>
       </header>
       <p className="mt-2 text-lg leading-snug">{build.kind}</p>
       {build.image ? (

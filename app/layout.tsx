@@ -9,9 +9,9 @@ import Script from 'next/script';
 const sans = Geist({ subsets: ['latin'], variable: '--font-sans' });
 const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
-const title = 'Edward Ornelas · Senior AI Engineer';
+const title = 'Edward Ornelas · AI Engineer & Tech Lead';
 const description =
-  'Senior AI engineer in Austin, TX. I build LLM features, agents and evals, and the production systems that keep them running.';
+  'AI engineer and tech lead in Austin, TX. I lead an 8-engineer team at BB TraderX and build LLM features, agents and evals, and the production systems that keep them running.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.edward-ornelas.com'),

@@ -25,8 +25,8 @@ const LogoMarquee = () => {
   );
 
   return (
-    <section className="border-t border-line py-7" aria-label="Companies I have worked with">
-      <p className="label px-4 sm:px-6">Worked with</p>
+    <section className="border-t border-line py-7" aria-label="Clients, partners and integrations">
+      <p className="label px-4 sm:px-6">Clients, partners and integrations</p>
       <div className="marquee-mask mt-5 overflow-hidden">
         <div className="marquee flex w-max">
           {row(false)}
