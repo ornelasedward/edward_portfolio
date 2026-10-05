@@ -28,6 +28,7 @@ import topRegR from "./images/topRegtengle.png";
 import topRefL from "./images/topRefLeft.svg";
 import logoForge from "./images/logoForge.png";
 import calvis from "./images/calvis.png";
+import riselocal from "./images/riselocal.png";
 import bizscout from "./images/bizscout.png";
 export {
   logo,
@@ -60,5 +61,6 @@ export {
   topRefL,
   logoForge,
   calvis,
+  riselocal,
   bizscout,
 };

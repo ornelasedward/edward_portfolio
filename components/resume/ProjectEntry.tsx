@@ -24,22 +24,24 @@ const ProjectEntry = ({ project, index }: Props) => {
       </header>
       <p className="mt-2 text-lg leading-snug">{project.kind}</p>
 
-      <a
-        href={project.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-5 block overflow-hidden border border-line"
-        aria-label={`Open ${project.name}`}
-      >
-        <Image
-          src={project.image}
-          alt={`${project.name} screenshot`}
-          className="h-auto w-full transition-transform duration-500 hover:scale-[1.015]"
-          sizes="(min-width: 1024px) 760px, 100vw"
-          placeholder="blur"
-          priority={index === 1}
-        />
-      </a>
+      {project.image ? (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 block overflow-hidden border border-line"
+          aria-label={`Open ${project.name}`}
+        >
+          <Image
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            className="h-auto w-full transition-transform duration-500 hover:scale-[1.015]"
+            sizes="(min-width: 1024px) 760px, 100vw"
+            placeholder="blur"
+            priority={index === 1}
+          />
+        </a>
+      ) : null}
 
       {project.stats.length > 0 ? (
         <div>

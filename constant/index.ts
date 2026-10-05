@@ -1,4 +1,4 @@
-import { bizscout, calvis, telo, terminal, traderx } from "@/assets";
+import { bizscout, calvis, riselocal, telo, terminal, traderx } from "@/assets";
 import type { StaticImageData } from "next/image";
 
 // Every role, date and number on this page mirrors the resume (Resume.docx). Change them together
@@ -58,7 +58,7 @@ export type Project = {
   role?: string;
   kind: string;
   period?: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   href: string;
   hrefLabel: string;
   summary: string;
@@ -164,6 +164,24 @@ export const projects: Project[] = [
       { value: "3", label: "Portals + patient app" },
     ],
     stack: ["JavaScript", "React Native", "Lit", "Directus", "Node.js", "PostgreSQL"],
+  },
+  {
+    id: "riselocal",
+    name: "Rise Local",
+    role: "Contract Web Developer",
+    kind: "Websites and SEO for local businesses across Dallas–Fort Worth.",
+    period: "2022",
+    image: riselocal,
+    href: "https://riselocal.com/",
+    hrefLabel: "riselocal.com",
+    summary:
+      "Rise Local is a Dallas SEO and digital marketing agency. For a few months I worked on its client accounts, building and maintaining websites for local businesses across Dallas–Fort Worth.",
+    built: [
+      "Built and maintained WordPress sites in Elementor for the agency's clients, including roofing, bail bonds, restaurants and home services.",
+      "Handled on-page SEO on client sites, and wrote cron jobs to automate recurring site tasks.",
+    ],
+    stats: [],
+    stack: ["WordPress", "Elementor", "HTML", "CSS", "SEO", "cPanel"],
   },
 ];
 
