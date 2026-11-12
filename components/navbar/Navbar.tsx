@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { profile } from '@/constant';
 
 const navLinks = [
@@ -8,7 +9,17 @@ const navLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const Navbar = () => {
+// On marketing.edward-ornelas.com "/" is the marketing page (see proxy.ts).
+const marketingLinks = [
+  { label: 'Growth', href: '/#onboarding' },
+  { label: 'Content', href: '/#content' },
+  { label: 'Toolkit', href: '/#toolkit' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const Navbar = async () => {
+  const host = (await headers()).get('host') ?? '';
+  const items = host.startsWith('marketing.') ? marketingLinks : navLinks;
   return (
     <header className="flex items-center justify-between gap-4 px-4 py-4 sm:px-6">
       <Link href="/" className="font-semibold tracking-tight">
@@ -16,7 +27,7 @@ const Navbar = () => {
       </Link>
       <nav>
         <ul className="flex items-center gap-5 text-sm">
-          {navLinks.map((link) => (
+          {items.map((link) => (
             <li key={link.href}>
               <Link href={link.href} className="text-muted transition-colors hover:text-ink">
                 {link.label}
