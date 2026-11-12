@@ -19,12 +19,10 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: 'https://marketing.edward-ornelas.com' },
+  alternates: { canonical: '/' },
   openGraph: { title, description, images: ['/images/header-img.png'], type: 'website' },
   twitter: { card: 'summary_large_image', title, description, images: ['/images/header-img.png'] },
 };
-
-const ENGINEERING_SITE = 'https://www.edward-ornelas.com';
 
 export default function MarketingHome() {
   return (
@@ -74,12 +72,7 @@ export default function MarketingHome() {
                 </a>
               ))}
           </div>
-          <p className="mt-6 font-mono text-xs text-muted">
-            {profile.availability} ·{' '}
-            <a href={ENGINEERING_SITE} className="link">
-              Engineering portfolio ↗
-            </a>
-          </p>
+          <p className="mt-6 font-mono text-xs text-muted">{profile.availability}</p>
         </div>
       </section>
 
@@ -183,10 +176,6 @@ export default function MarketingHome() {
           <Link href="/contact" className="link">
             contact form
           </Link>
-          . For my engineering work, see{' '}
-          <a href={ENGINEERING_SITE} className="link">
-            edward-ornelas.com
-          </a>
           .
         </p>
       </Row>
