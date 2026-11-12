@@ -12,7 +12,7 @@ import {
   marketingToolkit,
 } from '@/constant/marketing';
 
-const title = 'Edward Ornelas · Growth Engineer & Content Lead';
+const title = 'Edward Ornelas · Marketing Engineer';
 const description =
   'Engineer and marketer in Austin, TX. I grow the products I build: partner campaigns, onboarding, content and AI content operations.';
 

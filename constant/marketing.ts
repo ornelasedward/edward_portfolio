@@ -2,7 +2,7 @@
 // marketing resume (Edward_Ornelas_Resume_Marketing) and the main page. Change them together.
 
 export const marketingProfile = {
-  title: "Growth Engineer & Content Lead",
+  title: "Marketing Engineer",
   headline: "I build the product and the engine that brings people to it.",
   summary:
     "I've been making content for more than ten years, from editing videos for creators like Ryan Trahan to growing BecauseBitcoin's YouTube channel from under 1,000 to over 22,000 subscribers. As the lead engineer at BecauseBitcoin I also run a lot of our growth: partner campaigns, onboarding, newsletters, and the AI automations that let a small team publish like a big one.",
